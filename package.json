@@ -18,6 +18,7 @@
     "start": "craco start",
     "build": "craco build",
     "lint": "eslint \"./**/*.js\"",
+    "fix": "eslint **/*.js --fix",
     "test": "npm run lint",
     "reacttest": "react-scripts test",
     "eject": "react-scripts eject"
