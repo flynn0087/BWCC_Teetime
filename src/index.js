@@ -5,6 +5,8 @@ import "./index.css";
 // eslint-disable-next-line no-unused-vars
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import "./styles/tailwind.css";
+import "./styles/index.css";
 
 ReactDOM.render(
   <React.StrictMode>
