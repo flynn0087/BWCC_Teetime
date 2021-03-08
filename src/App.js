@@ -1,3 +1,10 @@
+/* eslint-disable no-unused-vars */
+import React from "react";
+import Login from "./components/Login/Login";
+import Logout from "./components/Logout/Logout";
+
+require("dotenv").config();
+
 function App() {
   return (
     <section className="App h-screen w-full flex justify-center items-center bg-green-500">
@@ -28,12 +35,8 @@ function App() {
             />
           </div>
           <div>
-            <button
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-              type="button"
-            >
-              Sign In
-            </button>
+            <Login />
+            <Logout />
           </div>
         </form>
       </div>
