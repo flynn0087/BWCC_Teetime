@@ -1,23 +1,10 @@
 import React from "react";
-import GoogleLogin from "react-google-login";
+import Login from "./components/Login/Login";
+import Logout from "./components/Logout/Logout";
+
+require("dotenv").config();
 
 function App() {
-  const handleLogin = async (googleData) => {
-    console.log(googleData);
-    const res = await fetch("/api/v1/auth/google", {
-      method: "POST",
-      body: JSON.stringify({
-        token: googleData.tokenId,
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    const data = await res.json();
-    console.log(data);
-    // store returned user somehow
-  };
-
   return (
     <section className="App h-screen w-full flex justify-center items-center bg-green-500">
       <div className="w-full max-w-md bg-gray-800">
@@ -47,13 +34,8 @@ function App() {
             />
           </div>
           <div>
-            <GoogleLogin
-              clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
-              buttonText="Log in with Google"
-              onSuccess={handleLogin}
-              onFailure={handleLogin}
-              cookiePolicy={"single_host_origin"}
-            />
+            <Login />
+            <Logout />
           </div>
         </form>
       </div>
