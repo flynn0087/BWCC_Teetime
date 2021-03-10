@@ -2,7 +2,7 @@ const express = require("express");
 require("dotenv").config();
 
 const mongoose = require("mongoose");
-// const routes = require("./routes");
+const routes = require("./routes");
 
 const PORT = process.env.PORT || 3001;
 
@@ -16,12 +16,12 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 // Add routes, both API and view
-//app.use(routes);
+app.use(routes);
 
-// mongoose.connect(
-//   process.env.MONGODB_URI ||
-//     `mongodb://${process.env.HOST}/${process.env.DB_NAME}`
-// );
+mongoose.connect(
+  process.env.MONGODB_URI ||
+    `mongodb://${process.env.HOST}/${process.env.DB_NAME}`
+);
 
 // Start the API server
 app.listen(PORT, () => {
