@@ -11,6 +11,7 @@ function App() {
   return (
     <div>
       <Router>
+        <Route exact path="/" component={OAuth} />
         <Route path="/oauth" component={OAuth} />
         <Route path="/home" component={Home} />
         <Route path="/availwash" component={AvailWash} />
