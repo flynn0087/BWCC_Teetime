@@ -4,8 +4,11 @@ const db = require("../models");
 // This file empties the Appointments collection and inserts the appointments below
 
 mongoose.connect(
-  process.env.MONGODB_URI ||
-  `mongodb://${process.env.HOST}/${process.env.DB_NAME}`);
+  // process.env.MONGODB_URI ||
+  `mongodb://${process.env.HOST}/${process.env.DB_NAME}`, {
+    useNewUrlParser: true,
+    useFindAndModify: false,
+  });
 
 
 const appointmentSeed = [
