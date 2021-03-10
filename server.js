@@ -18,10 +18,15 @@ if (process.env.NODE_ENV === "production") {
 // Add routes, both API and view
 app.use(routes);
 
-mongoose.connect(
-  process.env.MONGODB_URI ||
-    `mongodb://${process.env.HOST}/${process.env.DB_NAME}`
-);
+
+mongoose
+  .connect(process.env.MONGODB_URI || `mongodb://${process.env.HOST}/${process.env.DB_NAME}`, {
+    useNewUrlParser: true,
+    useFindAndModify: false,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log("\n\nMongoDB successfully connected\n\n"))
+  .catch((err) => console.log(err));
 
 // Start the API server
 app.listen(PORT, () => {

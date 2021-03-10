@@ -1,14 +1,18 @@
 const mongoose = require("mongoose");
 const db = require("../models");
+require("dotenv").config();
+
 
 // This file empties the Appointments collection and inserts the appointments below
 
-mongoose.connect(
-  // process.env.MONGODB_URI ||
-  `mongodb://${process.env.HOST}/${process.env.DB_NAME}`, {
+mongoose
+  .connect(`mongodb://${process.env.HOST}/${process.env.DB_NAME}`, {
     useNewUrlParser: true,
     useFindAndModify: false,
-  });
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log("\n\nMongoDB successfully connected\n\n"))
+  .catch((err) => console.log(err));
 
 
 const appointmentSeed = [
