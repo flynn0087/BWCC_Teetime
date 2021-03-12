@@ -1,4 +1,9 @@
 const express = require("express");
+let morgan = require("morgan");
+const session = require("express-session");
+// Requiring passport as we've configured it
+const passport = require("./OauthPassportConfig/passport");
+
 require("dotenv").config();
 
 const mongoose = require("mongoose");
@@ -15,9 +20,15 @@ app.use(express.json());
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
+
+app.use(
+  session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
+);
+app.use(passport.initialize());
+app.use(passport.session());
+
 // Add routes, both API and view
 app.use(routes);
-
 
 mongoose
   .connect(process.env.MONGODB_URI || `mongodb://${process.env.HOST}/${process.env.DB_NAME}`, {
@@ -27,6 +38,10 @@ mongoose
   })
   .then(() => console.log("\n\nMongoDB successfully connected\n\n"))
   .catch((err) => console.log(err));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
 
 // Start the API server
 app.listen(PORT, () => {
