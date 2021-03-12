@@ -35,6 +35,8 @@
     "googleapis": "^67.1.1",
     "mongoose": "^5.11.19",
     "nodemon": "^2.0.7",
+    "passport": "^0.4.1",
+    "passport-google-oauth20": "^2.0.0",
     "yargs": "^16.2.0"
   }
 }
