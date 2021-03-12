@@ -5,8 +5,8 @@ function App() {
 
     let gapi = window.gapi
  
-    let CLIENT_ID = `${CLIENTID}`
-    let API_KEY = `${APIKEY}`
+    let CLIENT_ID = `${REACT_APP_GOOGLE_CALENDAR_CLIENT_ID}`
+    let API_KEY = `${REACT_APP_GOOGLE_CALENDAR_API_KEY}`
     let DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"]
     let SCOPES = "https://www.googleapis.com/auth/calendar.events"
   
