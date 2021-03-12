@@ -11,9 +11,9 @@ router.get("/auth/google", passport.authenticate("google", { scope: ["profile"] 
 //    GET /auth/google/callback
 router.get(
   "/auth/google/callback",
-  passport.authenticate("google", { failureRedirect: "/" }),
+  passport.authenticate("google", { failureRedirect: "/oauth" }),
   (req, res) => {
-    res.redirect("/dashboard");
+    res.redirect("/oauth");
   }
 );
 
@@ -23,8 +23,8 @@ router.get("auth/calendar",
 );
 
 router.get("/auth/calendar/callback",
-  passport.authenticate("calendar", {failureRedirect : "/login"}), (req, res) => {
-    res.redirect("/dashboard");
+  passport.authenticate("calendar", {failureRedirect : "/oauth"}), (req, res) => {
+    res.redirect("/oauth");
   }
 );
 
