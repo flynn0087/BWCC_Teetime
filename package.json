@@ -1,54 +1,38 @@
 {
   "name": "suds_scheduler",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@craco/craco": "^6.1.1",
-    "@tailwindcss/forms": "^0.2.1",
-    "@testing-library/jest-dom": "^5.11.9",
-    "@testing-library/react": "^11.2.5",
-    "@testing-library/user-event": "^12.8.1",
-    "dotenv": "^8.2.0",
-    "eslint": "^7.21.0",
-    "google-auth-library": "^7.0.2",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-google-login": "^5.2.2",
-    "react-scripts": "4.0.3",
-    "web-vitals": "^1.1.0"
-  },
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
   "scripts": {
-    "build:style": "tailwind build src/styles/index.css -o src/styles/tailwind.css",
-    "start": "craco start",
-    "build": "craco build",
+    "test": "npm run lint",
     "lint": "eslint \"./**/*.js\"",
     "fix": "eslint **/*.js --fix",
-    "test": "npm run lint",
-    "reacttest": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:prod": "node server.js",
+    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
+    "client": "cd client && npm run start",
+    "install": "cd client && npm install",
+    "build": "cd client && npm run build",
+    "heroku-postbuild": "npm run build",
+    "seed": "node scripts/seedDB.js"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flynn0087/Suds_Scheduler.git"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/flynn0087/Suds_Scheduler/issues"
   },
-  "devDependencies": {
-    "@tailwindcss/postcss7-compat": "^2.0.3",
-    "autoprefixer": "^9.8.6",
-    "postcss": "^7.0.35",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.3"
+  "homepage": "https://github.com/flynn0087/Suds_Scheduler#readme",
+  "dependencies": {
+    "babel-eslint": "^10.1.0",
+    "concurrently": "^6.0.0",
+    "dotenv": "^8.2.0",
+    "eslint": "^7.21.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.11.19",
+    "nodemon": "^2.0.7"
   }
 }
