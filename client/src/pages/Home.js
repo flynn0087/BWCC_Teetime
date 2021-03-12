@@ -6,7 +6,7 @@ function Home() {
   return (
     <div>
      
-{/* // Start of the Modal */} */
+{/* // Start of the Modal */}
       <Navbar />
       {/* Start of the Modal */}
       <section className="App h-screen w-full flex justify-center items-center bg-green-500">
