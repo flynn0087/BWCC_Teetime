@@ -40,7 +40,7 @@ function Home() {
       {/* // End of the Navbar
 // Start of the Modal */}
       <section className="App h-screen w-full flex justify-center items-center bg-green-500">
-        <main className="justify-center h-34 w-60 pb-20 flex items-end min-h-screen pt-4 px-4 text-center sm:block sm:p-0">
+        <main className="h-34 w-64 pb-20 min-h-screen pt-4 px-4 text-center sm:block sm:p-0">
           <span
             className="hidden sm:inline-block sm:align-middle sm:h-screen"
             aria-hidden="true"
@@ -75,7 +75,7 @@ function Home() {
                 Find Your Car Wash. Save Your Time.
               </p>
             </main>
-            <main className="justify-center bg-gray-300 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+            <main className="justify-center my-auto bg-gray-300 px-4 py-3 sm:px-6 sm:flex-row-reverse">
               <button
                 type="button"
                 className="justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm"
