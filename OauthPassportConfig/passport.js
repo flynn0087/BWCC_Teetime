@@ -1,13 +1,24 @@
 const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const mongoose = require("mongoose");
-const dotenv = require("dotenv").config();
+require("dotenv").config();
 const User = require("../models/User");
+const cookieSession = require("cookie-session");
+
+app.use(cookieSession({
+  // milliseconds of a day
+  maxAge: 24*60*60*1000,
+  keys:[dotenv.session.cookieKey]
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
 
 passport.use(
   new GoogleStrategy({
-    clientID: dotenv.google.clientID,
-    clientSecret: dotenv.google.clientSecret,
+    clientID: process.env.GOOGLE_CLIENT_ID,
+    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     callbackURL: "/auth/google/redirect"
   }, (accessToken, refreshToken, profile, done) => {
     // passport callback function
