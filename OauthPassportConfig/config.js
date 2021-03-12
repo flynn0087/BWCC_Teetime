@@ -2,7 +2,8 @@ const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const mongoose = require("mongoose");
 const dotenv = require("dotenv").config();
-const User = require("./");
+const User = require("../models/User");
+
 
 passport.use(
   new GoogleStrategy({
@@ -12,19 +13,35 @@ passport.use(
   }, (accessToken, refreshToken, profile, done) => {
     // passport callback function
     //check if user already exists in our db with the given profile ID
-    User.findOne({googleId: profile.id}).then((currentUser)=>{
-      if(currentUser){
-        //if we already have a record with the given profile ID
-        done(null, currentUser);
-      } else{
-        //if not, create a new user
-        new User({
+    User.findOne({googleId: profile.id}).then(dbModel => {
+      if(!dbModel) {
+        User.create({
+          firstName: profile.name.givenName,
+          lastName: proile.name.familyName,
+          portrait: profile.photos[0].value,
           googleId: profile.id,
-        }).save().then((newUser) =>{
-          done(null, newUser);
-        });
+        })
+          .then(dbModel => console.log(dbModel))
+          .catch(err => console.log(err));
       }
-    });
-  })
-);
+    })
+      .catch (err => console.log(err));
 
+    console.log(profile);
+    cb(null, profile);
+  }
+  ));
+
+
+
+passport.serializeUser((user, done) => {
+  done(null, user.id);
+});
+
+passport.deserializeUser((id, done) => {
+  User.findById(id).then(user => {
+    done(null, user);
+  });
+});
+
+module.exports = passport;
