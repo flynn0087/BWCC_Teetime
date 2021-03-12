@@ -6,6 +6,16 @@ import AvailWash from "./pages/AvailWash";
 import Calendar from "./pages/Calendar";
 import SuccessQR from "./pages/SuccessQR";
 import Login from "./pages/Login";
+const cookieSession = require("cookie-session");
+
+app.use(cookieSession({
+  // milliseconds of a day
+  maxAge: 24*60*60*1000,
+  keys:[keys.session.cookieKey]
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 function App() {
   return (

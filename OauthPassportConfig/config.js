@@ -4,7 +4,6 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv").config();
 const User = require("../models/User");
 
-
 passport.use(
   new GoogleStrategy({
     clientID: dotenv.google.clientID,
