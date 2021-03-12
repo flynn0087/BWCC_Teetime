@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
-import Success from "../components/success/Success";
+import Success from "../components/Success/Success";
 
 function SuccessQR() {
   return (
@@ -9,9 +9,7 @@ function SuccessQR() {
         <div className="flow-root bg-gray-300">
           <p className="text-center my-10">SUCCESS AND CONFIRMATION</p>
 
-          <p className="text-center my-10">
-            You've scheduled a carwash at EXAMPLETIME at EXAMPLELOCATION
-          </p>
+          <p className="text-center my-10">You've scheduled a carwash at EXAMPLETIME at EXAMPLELOCATION</p>
         </div>
       </div>
 
@@ -21,13 +19,10 @@ function SuccessQR() {
 
       <div className="container flow-root bg-green-100">
         <p className="text-center mt-10 mb-6">
-          Use this QR code to claim your car wash appointment in the reserved
-          line
+          Use this QR code to claim your car wash appointment in the reserved line
         </p>
         <br></br>
-        <p className="text-center my-6 mb-10">
-          Refer your friends to the Suds Time App!
-        </p>
+        <p className="text-center my-6 mb-10">Refer your friends to the Suds Time App!</p>
       </div>
     </div>
   );
