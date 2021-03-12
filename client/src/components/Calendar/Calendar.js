@@ -4,8 +4,10 @@ require("dotenv").config();
 function App() {
 
     let gapi = window.gapi
- 
+  
+    // eslint-disable-next-line no-undef
     let CLIENT_ID = `${REACT_APP_GOOGLE_CALENDAR_CLIENT_ID}`
+    // eslint-disable-next-line no-undef
     let API_KEY = `${REACT_APP_GOOGLE_CALENDAR_API_KEY}`
     let DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"]
     let SCOPES = "https://www.googleapis.com/auth/calendar.events"
