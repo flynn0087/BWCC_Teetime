@@ -1,12 +1,22 @@
 /* eslint-disable no-unused-vars */
-import React from "react";
 
-function Calendar() {
+import React, { useState } from "react";
+import Calendar from "react-calendar";
+import "react-calendar/dist/Calendar.css";
+
+function App(props) {
+  const [value, onChange] = useState(new Date());
   return (
     <div>
-      <p>Hello Calendar Page!</p>
+      <Calendar
+        onChange={onChange}
+        value={value}
+        onClickDay={() => {
+          console.log({ value });
+        }}
+      />
     </div>
   );
 }
 
-export default Calendar;
+export default App;
