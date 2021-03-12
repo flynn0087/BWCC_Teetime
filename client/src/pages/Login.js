@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
 import { GoogleLogin } from "react-google-login";
-import { refreshTokenSetup } from "../../utils/refreshToken";
+import { refreshTokenSetup } from "../utils/refreshToken";
 
 function Login() {
   const googleSuccess = async (res) => {
