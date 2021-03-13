@@ -1,17 +1,20 @@
 const express = require("express");
-let morgan = require("morgan");
+const mongoose = require("mongoose");
+let logger = require("morgan");
 const session = require("express-session");
 // Requiring passport as we've configured it
 const passport = require("./OauthPassportConfig/passport");
 
 require("dotenv").config();
 
-const mongoose = require("mongoose");
+
 const routes = require("./routes");
 
 const PORT = process.env.PORT || 3001;
 
 const app = express();
+
+app.use(logger("dev"));
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
