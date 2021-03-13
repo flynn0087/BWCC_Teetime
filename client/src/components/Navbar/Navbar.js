@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
+import Logout from "../Logout/Logout";
 
 function Navbar() {
   return (
@@ -11,13 +12,6 @@ function Navbar() {
               <nav>
                 <nav className="ml-10 flex items-baseline space-x-4">
                   <a
-                    href="/availwash"
-                    className="bg-blue-900 text-white px-3 py-2 rounded-md text-sm font-medium"
-                  >
-                    Available Washes
-                  </a>
-
-                  <a
                     href="/calendar"
                     className="text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                   >
@@ -25,6 +19,7 @@ function Navbar() {
                   </a>
                 </nav>
               </nav>
+              <Logout />
             </nav>
           </nav>
         </nav>
