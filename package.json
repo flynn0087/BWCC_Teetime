@@ -28,6 +28,7 @@
   "homepage": "https://github.com/flynn0087/Suds_Scheduler#readme",
   "dependencies": {
     "babel-eslint": "^10.1.0",
+    "bootstrap": "^4.6.0",
     "concurrently": "^6.0.0",
     "dotenv": "^8.2.0",
     "eslint": "^7.21.0",
@@ -35,7 +36,9 @@
     "googleapis": "^67.1.1",
     "mongoose": "^5.11.19",
     "nodemon": "^2.0.7",
+    "react-bootstrap": "^1.5.2",
     "react-calendar": "^3.3.1",
+    "react-datetime-picker": "^3.2.0",
     "yargs": "^16.2.0"
   }
 }
