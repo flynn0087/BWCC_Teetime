@@ -9,8 +9,7 @@ function Nalendar(props) {
     <div>
       <section className="App h-screen w-full flex justify-center items-center bg-green-500">
         <Calendar
-          className="h-80 flex flex-grow"
-          style="padding: 20px;"
+          className="h-80 flex flex-grow p-5"
           onChange={onChange}
           value={[new Date()]}
           onClickDay={console.log(val)}
