@@ -6,7 +6,7 @@ import AvailWash from "./pages/AvailWash";
 import Calendar from "./pages/Calendar";
 import SuccessQR from "./pages/SuccessQR";
 import Login from "./pages/Login";
-import Logout from "./pages/Logout";
+import LogoutPage from "./pages/Logout";
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
         <Route path="/availwash" component={AvailWash} />
         <Route path="/calendar" component={Calendar} />
         <Route path="/successqr" component={SuccessQR} />
-        <Route path="/logout" component={Logout} />
+        <Route path="/logout" component={LogoutPage} />
       </Router>
     </div>
   );
