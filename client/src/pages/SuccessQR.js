@@ -1,10 +1,12 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
 import Success from "../components/Success/Success";
+import Navbar from "../components/Navbar/Navbar";
 
 function SuccessQR() {
   return (
     <div>
+      <Navbar />
       <div className="container mx-auto">
         <div className="flow-root bg-gray-300">
           <p className="text-center my-10">SUCCESS AND CONFIRMATION</p>

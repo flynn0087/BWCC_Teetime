@@ -1,12 +1,14 @@
-/* eslint-disable no-unused-vars */
-import React from "react";
+// // **This page is for future development and is intentionally commented out. 
 
-function AvailWash() {
-  return (
-    <div>
-      <p>Hello Available Washes page!</p>
-    </div>
-  );
-}
+// /* eslint-disable no-unused-vars */
+// import React from "react";
 
-export default AvailWash;
+// function AvailWash() {
+//   return (
+//     <div>
+//       <p>Hello Available Washes page!</p>
+//     </div>
+//   );
+// }
+
+// export default AvailWash;
