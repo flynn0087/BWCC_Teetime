@@ -2,14 +2,27 @@
 import React from "react";
 import { GoogleLogin } from "react-google-login";
 import { refreshTokenSetup } from "../utils/refreshToken";
+import axios from "axios";
 
 function Login() {
   const googleSuccess = async (res) => {
-    const result = res?.profileObj;
-    console.log("Login Success: currentUser:", res.profileObj);
-    alert(`Logged in successfully welcome ${res.profileObj.name} 😍. \n See console for full profile object.`);
-
-    refreshTokenSetup(res);
+    const google = await res;
+    console.log(google);
+    axios({
+      method: "POST",
+      url: "/api/googlelogin",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      data: { tokenId: google.tokenId },
+    })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    // refreshTokenSetup(res);
   };
 
   const googleFailure = (res) => {

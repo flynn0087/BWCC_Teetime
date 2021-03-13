@@ -6,13 +6,12 @@ let logger = require("morgan");
 
 require("dotenv").config();
 
-
 const routes = require("./routes");
 
 const PORT = process.env.PORT || 3001;
 
-
 const app = express();
+require("dotenv").config();
 
 app.use(logger("dev"));
 
@@ -23,7 +22,6 @@ app.use(express.json());
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
-
 
 // Add routes, both API and view
 app.use(routes);
@@ -36,6 +34,10 @@ mongoose
   })
   .then(() => console.log("\n\nMongoDB successfully connected\n\n"))
   .catch((err) => console.log(err));
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
+// Add routes, both API and view
 
 // Start the API server
 app.listen(PORT, () => {
