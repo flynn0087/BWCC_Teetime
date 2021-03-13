@@ -1,24 +1,14 @@
 const express = require("express");
-require("dotenv").config();
-
 const mongoose = require("mongoose");
-const routes = require("./routes");
-
-const PORT = process.env.PORT || 3001;
-
+const googlelogin = require("./routes/api/auth");
+const PORT = process.env.PORT || 8088;
 const app = express();
+require("dotenv").config();
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // Serve up static assets (usually on heroku)
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-}
-// Add routes, both API and view
-app.use(routes);
-
-
 mongoose
   .connect(process.env.MONGODB_URI || `mongodb://${process.env.HOST}/${process.env.DB_NAME}`, {
     useNewUrlParser: true,
@@ -27,6 +17,12 @@ mongoose
   })
   .then(() => console.log("\n\nMongoDB successfully connected\n\n"))
   .catch((err) => console.log(err));
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
+// Add routes, both API and view
+
+app.use("/api/googlelogin", googlelogin);
 
 // Start the API server
 app.listen(PORT, () => {
