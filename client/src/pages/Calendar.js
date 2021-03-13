@@ -4,13 +4,25 @@ import React, { useDebugValue, useState } from "react";
 import Nalendar from "../components/Calendar/Calendar";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
+import Navbar from "../components/Navbar/Navbar";
 
 function App() {
   const [value, onChange] = useState(new Date());
   let val = value.toDateString();
   return (
     <div>
+<<<<<<< HEAD
       <Nalendar />
+=======
+      <Navbar />
+      <Calendar
+        onChange={onChange}
+        value={value}
+        onClickDay={() => {
+          console.log({ value });
+        }}
+      />
+>>>>>>> 741e312f29b123cd1de7e9fd3db0bce2b6564be9
     </div>
   );
 }
