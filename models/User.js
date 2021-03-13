@@ -2,23 +2,23 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
-  name: {
+  googleId: {
+    type: String,
+    require: true,
+  },
+  displayName: {
+    type: String,
+    require: true,
+  },
+  firstName: {
     type: String,
     required: true,
   },
-  email: {
+  lastName: {
     type: String,
     required: true,
   },
-  password: {
-    type: String,
-    required: true,
-  },
-  date: {
-    type: Date,
-    default: Date.now,
-  },
-  loyaltyLevel: {
+  image: {
     type: String,
     required: true,
   },

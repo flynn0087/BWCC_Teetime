@@ -1,12 +1,13 @@
 const router = require("express").Router();
 const userRoutes = require("./users");
-const apointmentRoutes = require("./appointments");
+const appointmentRoutes = require("./appointments");
 
 // user routes
 router.use("/users", userRoutes);
 
-// apointment routes
-router.use("/appointments", apointmentRoutes);
+// appointment routes
+router.use("/appointments", appointmentRoutes);
+
 
 
 module.exports = router;
