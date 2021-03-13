@@ -1,14 +1,31 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const googlelogin = require("./routes/api/auth");
-const PORT = process.env.PORT || 8088;
+let logger = require("morgan");
+
+// Requiring passport as we've configured it
+
+require("dotenv").config();
+
+const routes = require("./routes");
+
+const PORT = process.env.PORT || 3001;
+
 const app = express();
 require("dotenv").config();
+
+app.use(logger("dev"));
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // Serve up static assets (usually on heroku)
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
+
+// Add routes, both API and view
+app.use(routes);
+
 mongoose
   .connect(process.env.MONGODB_URI || `mongodb://${process.env.HOST}/${process.env.DB_NAME}`, {
     useNewUrlParser: true,
@@ -21,8 +38,6 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 // Add routes, both API and view
-
-app.use("/api/googlelogin", googlelogin);
 
 // Start the API server
 app.listen(PORT, () => {
