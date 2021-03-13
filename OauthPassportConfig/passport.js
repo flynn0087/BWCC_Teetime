@@ -5,6 +5,7 @@ const dotenv = require("dotenv");
 dotenv.config();
 const User = require("../models/User");
 
+
 // const cookieSession = require("cookie-session");
 
 // app.use(cookieSession({
@@ -12,9 +13,6 @@ const User = require("../models/User");
 //   maxAge: 24*60*60*1000,
 //   keys:[dotenv.session.cookieKey]
 // }));
-
-app.use(passport.initialize());
-app.use(passport.session());
 
 
 passport.use(
@@ -28,6 +26,7 @@ passport.use(
     User.findOne({googleId: profile.id}).then(User => {
       if(!User) {
         User.create({
+          email: profile.email,
           firstName: profile.name.givenName,
           lastName: profile.name.familyName,
           googleId: profile.id,
