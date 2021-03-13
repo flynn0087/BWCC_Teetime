@@ -1,31 +1,33 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
 import Success from "../components/Success/Success";
+import Navbar from "../components/Navbar/Navbar";
 
 function SuccessQR() {
   return (
     <div>
+      <Navbar />
       <div className="container mx-auto">
-        <div className="flow-root bg-gray-300">
-          <p className="text-center my-10">SUCCESS AND CONFIRMATION</p>
+        <div className="flow-root bg-green-500">
+          <p className="text-center my-10 text-yellow-300">SUCCESS AND CONFIRMATION</p>
 
-          <p className="text-center my-10">
+          <p className="text-center text-white my-10">
             You've scheduled a carwash at EXAMPLETIME at EXAMPLELOCATION
           </p>
         </div>
       </div>
 
-      <div className="container bg-red-100">
+      <div className="container bg-green-500">
         <Success />
       </div>
 
-      <div className="container flow-root bg-green-100">
-        <p className="text-center mt-10 mb-6">
+      <div className="container flow-root bg-green-500 h-screen">
+        <p className="text-center text-white mt-10 mb-6">
           Use this QR code to claim your car wash appointment in the reserved
           line
         </p>
         <br></br>
-        <p className="text-center my-6 mb-10">
+        <p className="text-center text-white my-6 mb-10">
           Refer your friends to the Suds Time App!
         </p>
       </div>
