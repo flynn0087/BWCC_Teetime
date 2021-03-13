@@ -20,10 +20,6 @@ const UserSchema = new Schema({
     type: Date,
     default: Date.now,
   },
-  loyaltyLevel: {
-    type: String,
-    required: true,
-  },
 });
 
 const User = mongoose.model("users", UserSchema);
