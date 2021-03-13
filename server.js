@@ -43,12 +43,6 @@ mongoose
   .then(() => console.log("\n\nMongoDB successfully connected\n\n"))
   .catch((err) => console.log(err));
 
-
-
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
-});
-
 // Start the API server
 app.listen(PORT, () => {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);

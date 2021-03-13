@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 dotenv.config();
 const User = require("../models/User");
+
 // const cookieSession = require("cookie-session");
 
 // app.use(cookieSession({
@@ -24,15 +25,14 @@ passport.use(
   }, (accessToken, refreshToken, profile, done) => {
     // passport callback function
     //check if user already exists in our db with the given profile ID
-    User.findOne({googleId: profile.id}).then(dbModel => {
-      if(!dbModel) {
+    User.findOne({googleId: profile.id}).then(User => {
+      if(!User) {
         User.create({
           firstName: profile.name.givenName,
-          lastName: proile.name.familyName,
-          portrait: profile.photos[0].value,
+          lastName: profile.name.familyName,
           googleId: profile.id,
         })
-          .then(dbModel => console.log(dbModel))
+          .then(User => console.log(User))
           .catch(err => console.log(err));
       }
     })
