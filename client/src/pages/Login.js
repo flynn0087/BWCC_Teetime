@@ -30,11 +30,14 @@ function Login({ history }) {
     [history]
   });
 
- const { currentUser} = useContext(AuthContext);
+ const { currentUser } = useContext(AuthContext);
 
  if (currentUser) {
-   return <Redirect to="/" />
+   return <Redirect to="/calendar" />
  }
+ if (!currentUser) {
+  return <Redirect to="/oauth" />
+}
 
 
   const googleFailure = (res) => {
