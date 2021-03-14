@@ -7,11 +7,13 @@ import Calendar from "./pages/Calendar";
 import SuccessQR from "./pages/SuccessQR";
 import Login from "./pages/Login";
 import LogoutPage from "./pages/Logout";
+import {AuthProvider} from "../../routes/api/auth";
 import PrivateRoute from "./privateRoute/PrivateRoute";
 
 function App() {
   return (
     <div>
+      <AuthProvider>
       <Router>
         <Switch>
         <Route exact path="/" component={Login} />
@@ -23,6 +25,7 @@ function App() {
         <PrivateRoute path="/logout" component={LogoutPage} />
         </Switch>
       </Router>
+      </AuthProvider>
     </div>
   );
 }
