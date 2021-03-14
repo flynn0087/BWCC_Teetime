@@ -5,6 +5,7 @@ const { OAuth2Client } = require("google-auth-library");
 const client = new OAuth2Client(process.env.REACT_APP_GOOGLE_CLIENT_ID);
 
 exports.googlelogin = (req, res) => {
+  console.log(req.body, "reqbody");
   const { tokenId } = req.body;
   client.verifyIdToken({ idToken: tokenId, audience: process.env.REACT_APP_GOOGLE_CLIENT_ID }).then((response) => {
     const { email_verified, name, email } = response.payload;
