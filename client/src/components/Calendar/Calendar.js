@@ -1,20 +1,24 @@
 import React, { useState } from "react";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
+import Navbar from "../Navbar/Navbar";
 
 function Nalendar(props) {
   const [value, onChange] = useState(new Date());
   let val = value.toDateString();
   return (
     <div>
-      <section className="App h-screen w-full flex justify-center items-center bg-green-500">
-        <Calendar
-          className="h-80 flex flex-grow p-5"
-          onChange={onChange}
-          value={[new Date()]}
-          onClickDay={console.log(val)}
-        />
-      </section>
+      <Navbar />
+      <div className="mx-auto container">
+        <section className="App h-screen w-full flex justify-center items-center bg-green-500">
+          <Calendar
+            className="p-5 w-auto"
+            onChange={onChange}
+            value={[new Date()]}
+            onClickDay={console.log(val)}
+          />
+        </section>
+      </div>
     </div>
   );
 }
