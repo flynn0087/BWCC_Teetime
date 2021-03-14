@@ -29,6 +29,7 @@ app.use(routes);
 mongoose
   .connect(process.env.MONGODB_URI || `mongodb://${process.env.HOST}/${process.env.DB_NAME}`, {
     useNewUrlParser: true,
+    useCreateIndex: true,
     useFindAndModify: false,
     useUnifiedTopology: true,
   })

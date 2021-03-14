@@ -1,20 +1,25 @@
 /* eslint-disable no-unused-vars */
-import React from "react";
+import React, { useContext, useState } from "react";
 import { GoogleLogin } from "react-google-login";
 import { refreshTokenSetup } from "../utils/refreshToken";
 import axios from "axios";
+import { LoginContext } from "../utils/UserContext";
 
 function Login() {
   const googleSuccess = async (res) => {
     const google = await res;
-    console.log(google);
+
     axios({
       method: "POST",
       url: "/api/googlelogin",
       headers: {
         "Content-Type": "application/json",
       },
-      data: { tokenId: google.tokenId },
+      data: {
+        tokenId: google.tokenId,
+        id: google.googleId,
+        headshot: google.profileObj.imageUrl,
+      },
     })
       .then((response) => {
         console.log(response);
@@ -34,7 +39,7 @@ function Login() {
     <section className="App h-screen w-full flex justify-center items-center bg-green-500">
       <div className="w-full max-w-md bg-gray-800">
         <div className="text-center bg-white shadow-md rounded px-8 py-8 pt-8">
-          <h3>Sudz-Time</h3>
+          <h3>Sudds</h3>
           <hr></hr>
           <p className="m-10">For Scheduling your Car Wash on the Run</p>
           <GoogleLogin

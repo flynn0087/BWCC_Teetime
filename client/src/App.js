@@ -7,18 +7,23 @@ import Calendar from "./pages/Calendar";
 import SuccessQR from "./pages/SuccessQR";
 import Login from "./pages/Login";
 import LogoutPage from "./pages/Logout";
+import { LoginContext } from "./utils/UserContext";
 
 function App() {
+  const ex = Login.googleSuccess;
+  console.log(ex);
+
   return (
     <div>
       <Router>
-        <Route exact path="/" component={Login} />
-        <Route path="/oauth" component={Login} />
-        <Route path="/home" component={Home} />
-        <Route path="/availwash" component={AvailWash} />
-        <Route path="/calendar" component={Calendar} />
-        <Route path="/successqr" component={SuccessQR} />
-        <Route path="/logout" component={LogoutPage} />
+        <LoginContext.Provider value={LoginContext}>
+          <Route exact path="/" component={Login} />
+          <Route path="/home" component={Home} />
+          <Route path="/availwash" component={AvailWash} />
+          <Route path="/calendar" component={Calendar} />
+          <Route path="/successqr" component={SuccessQR} />
+          <Route path="/logout" component={LogoutPage} />
+        </LoginContext.Provider>
       </Router>
     </div>
   );

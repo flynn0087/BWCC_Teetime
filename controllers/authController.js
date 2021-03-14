@@ -5,7 +5,10 @@ const { OAuth2Client } = require("google-auth-library");
 const client = new OAuth2Client(process.env.REACT_APP_GOOGLE_CLIENT_ID);
 
 exports.googlelogin = (req, res) => {
-  const { tokenId } = req.body;
+  const headshot = req.body.headshot;
+  const googleId = req.body.id;
+  console.log(googleId);
+  const tokenId = req.body.tokenId;
   client.verifyIdToken({ idToken: tokenId, audience: process.env.REACT_APP_GOOGLE_CLIENT_ID }).then((response) => {
     const { email_verified, name, email } = response.payload;
 
@@ -19,12 +22,13 @@ exports.googlelogin = (req, res) => {
           });
         } else {
           if (!user) {
-            let password = email;
             console.log("Hello and welcome" + user);
             let newUser = new User({
+              googleId,
               name,
               email,
-              password,
+              headshot,
+              isLoggedIn: true,
             });
             newUser.save((err, data) => {
               if (err) {
@@ -34,7 +38,10 @@ exports.googlelogin = (req, res) => {
                 });
               }
               console.log("Success");
+              res.json(data);
             });
+          } else {
+            res.json({ user, tokenId });
           }
         }
       });
