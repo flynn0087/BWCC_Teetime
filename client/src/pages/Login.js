@@ -1,14 +1,11 @@
 /* eslint-disable no-unused-vars */
-import React, { useCallback, useContext } from "react";
-import { withRouter, Redirect } from "react-router";
-import { AuthContext } from "../../../routes/api/auth";
+import React from "react";
 import { GoogleLogin } from "react-google-login";
 import { refreshTokenSetup } from "../utils/refreshToken";
 import axios from "axios";
 
-function Login({ history }) {
-  const googleSuccess = useCallback (
-  async (res) => {
+function Login() {
+  const googleSuccess = async (res) => {
     const google = await res;
     console.log(google);
     axios({
@@ -20,25 +17,13 @@ function Login({ history }) {
       data: { tokenId: google.tokenId },
     })
       .then((response) => {
-        history.push("/");
         console.log(response);
       })
       .catch((error) => {
         console.log(error);
       });
     // refreshTokenSetup(res);
-    [history]
-  });
-
- const { currentUser } = useContext(AuthContext);
-
- if (currentUser) {
-   return <Redirect to="/calendar" />
- }
- if (!currentUser) {
-  return <Redirect to="/oauth" />
-}
-
+  };
 
   const googleFailure = (res) => {
     console.log("Login failed: res:", res);
@@ -67,4 +52,4 @@ function Login({ history }) {
   );
 }
 
-export default withRouter(Login);
+export default Login;

@@ -1,29 +1,19 @@
 /* eslint-disable no-unused-vars */
 
-import React, { useDebugValue, useState, useCallback, useContext } from "react";
-import { withRouter, Redirect } from "react-router";
-import { AuthContext } from "../../../routes/api/auth";
+import React, { useDebugValue, useState } from "react";
 import Nalendar from "../components/Calendar/Calendar";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import Navbar from "../components/Navbar/Navbar";
 
-function App( {history} ) {
+function App() {
   const [value, onChange] = useState(new Date());
   let val = value.toDateString();
   return (
     <div>
       <Nalendar />
     </div>
-  )
-  [history]
-  
-}
-
-const { currentUser } = useContext(AuthContext);
-
-if (!currentUser) {
-  return <Redirect to="/oauth" />
+  );
 }
 
 // function App() {
@@ -45,4 +35,4 @@ if (!currentUser) {
 //   );
 // }
 
-export default withRouter (App);
+export default App;

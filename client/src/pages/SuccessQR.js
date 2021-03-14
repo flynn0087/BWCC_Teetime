@@ -1,11 +1,10 @@
 /* eslint-disable no-unused-vars */
-import React, {useContext} from "react";
-import { withRouter, Redirect } from "react-router";
-import { AuthContext } from "../../../routes/api/auth";
+import React from "react";
+
 import Success from "../components/Success/Success";
 import Navbar from "../components/Navbar/Navbar";
 
-function SuccessQR( {history} ) {
+function SuccessQR(  ) {
   return (
     <div>
       <Navbar />
@@ -35,13 +34,8 @@ function SuccessQR( {history} ) {
       </div>
     </div>
   );
-  [history]
+
 }
 
-const {currentUser} = useContext(AuthContext);
 
-if (!currentUser) {
-  return <Redirect to="/oauth" />;
-}
-
-export default withRouter(SuccessQR);
+export default SuccessQR;
