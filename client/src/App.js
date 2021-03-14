@@ -6,7 +6,7 @@ import AvailWash from "./pages/AvailWash";
 import Calendar from "./pages/Calendar";
 import SuccessQR from "./pages/SuccessQR";
 import Login from "./pages/Login";
-import LogoutPage from "./pages/Logout";
+import LogoutPage from "./pages/LogoutPage";
 
 function App() {
   return (
