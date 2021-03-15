@@ -6,6 +6,7 @@ import axios from "axios";
 
 function Login() {
   const googleSuccess = async (res) => {
+    const googleId = res.profileObj.googleId;
     const google = await res;
     console.log(google);
     axios({
@@ -14,7 +15,7 @@ function Login() {
       headers: {
         "Content-Type": "application/json",
       },
-      data: { tokenId: google.tokenId },
+      data: { tokenId: google.tokenId, id: googleId },
     })
       .then((response) => {
         console.log(response);
