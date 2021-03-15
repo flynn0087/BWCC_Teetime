@@ -7,11 +7,9 @@ import Calendar from "./pages/Calendar";
 import SuccessQR from "./pages/SuccessQR";
 import Login from "./pages/Login";
 import LogoutPage from "./pages/LogoutPage";
+import LoginContext from "./utils/LoginContext";
 
 function App() {
-  const ex = Login.googleSuccess;
-  console.log(ex);
-
   return (
     <div>
       <Router>
