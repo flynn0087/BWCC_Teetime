@@ -5,6 +5,7 @@ const { OAuth2Client } = require("google-auth-library");
 const client = new OAuth2Client(process.env.REACT_APP_GOOGLE_CLIENT_ID);
 
 exports.googlelogin = (req, res) => {
+  console.log(req.body);
   const headshot = req.body.headshot;
   const googleId = req.body.id;
   console.log(googleId);
