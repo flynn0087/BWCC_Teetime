@@ -6,6 +6,7 @@ import axios from "axios";
 
 function Login() {
   const googleSuccess = async (res) => {
+    const googleId = res.profileObj.googleId;
     const google = await res;
     console.log(google);
     axios({
@@ -14,7 +15,7 @@ function Login() {
       headers: {
         "Content-Type": "application/json",
       },
-      data: { tokenId: google.tokenId },
+      data: { tokenId: google.tokenId, id: googleId },
     })
       .then((response) => {
         console.log(response);
@@ -22,7 +23,7 @@ function Login() {
       .catch((error) => {
         console.log(error);
       });
-    // refreshTokenSetup(res);
+    refreshTokenSetup(res);
   };
 
   const googleFailure = (res) => {
@@ -45,6 +46,8 @@ function Login() {
             cookiePolicy={"single_host_origin"}
             style={{ marginTop: "100px" }}
             isSignedIn={true}
+            uxMode="redirect"
+            redirectUri="http://localhost:8080/home"
           />
         </div>
       </div>
