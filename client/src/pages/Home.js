@@ -9,7 +9,7 @@ function Home() {
 {/* // Start of the Modal */}
       <Navbar />
       {/* Start of the Modal */}
-      <section className="App h-screen w-full flex justify-center items-center bg-green-500">
+      <section className="App container h-screen w-full flex justify-center items-center bg-green-500">
         <main className="h-34 w-64 pb-20 min-h-screen pt-4 px-4 text-center sm:block sm:p-0">
           <span
             className="hidden sm:inline-block sm:align-middle sm:h-screen"

@@ -31,7 +31,7 @@ function Login() {
   };
 
   return (
-    <section className="App h-screen w-full flex justify-center items-center bg-green-500">
+    <section className="App container h-screen w-full flex justify-center items-center bg-green-500">
       <div className="w-full max-w-md bg-gray-800">
         <div className="text-center bg-white shadow-md rounded px-8 py-8 pt-8">
           <h3>Sudz-Time</h3>

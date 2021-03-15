@@ -27,7 +27,7 @@ function SuccessQR() {
           line
         </p>
         <br></br>
-        <p className="text-center text-white my-6 mb-10 text-2xl">
+        <p className="animate-bounce text-center text-white my-6 mb-10 text-2xl">
           Refer your friends to the Suds Time App!
         </p>
       </div>
