@@ -3,6 +3,11 @@ const Schema = mongoose.Schema;
 
 
 const UserSchema = new Schema({
+  googleId: {
+    type: String,
+    required: true,
+    unique: true,
+  },
   name: {
     type: String,
     required: true,
@@ -11,9 +16,8 @@ const UserSchema = new Schema({
     type: String,
     required: true,
   },
-  password: {
+  headshot: {
     type: String,
-    required: true,
   },
 });
 
