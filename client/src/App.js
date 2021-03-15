@@ -13,17 +13,6 @@ function App() {
   return (
     <div>
       <Router>
-<<<<<<< HEAD
-        <Switch>
-        <Route exact path="/" component={Login} />
-        <Route path="/oauth" component={Login} />
-        <Route path="/home" component={Home} />
-        <Route path="/availwash" component={AvailWash} />
-        <Route path="/calendar" component={Calendar} />
-        <Route path ="/successqr" component={SuccessQR} />
-        <Route path="/logout" component={LogoutPage} />
-        </Switch>
-=======
         <LoginContext.Provider value={LoginContext}>
           <Route exact path="/" component={Login} />
           <Route path="/home" component={Home} />
@@ -32,7 +21,6 @@ function App() {
           <Route path="/successqr" component={SuccessQR} />
           <Route path="/logout" component={LogoutPage} />
         </LoginContext.Provider>
->>>>>>> 4531a11d8509a9f84384fcd6fbdb2af4be704ae7
       </Router>
     </div>
   );

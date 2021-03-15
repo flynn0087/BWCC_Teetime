@@ -5,16 +5,11 @@ const { OAuth2Client } = require("google-auth-library");
 const client = new OAuth2Client(process.env.REACT_APP_GOOGLE_CLIENT_ID);
 
 exports.googlelogin = (req, res) => {
-<<<<<<< HEAD
-  console.log(req.body, "reqbody");
-  const { tokenId } = req.body;
-=======
   console.log(req.body);
   const headshot = req.body.headshot;
   const googleId = req.body.id;
   console.log(googleId);
   const tokenId = req.body.tokenId;
->>>>>>> 4531a11d8509a9f84384fcd6fbdb2af4be704ae7
   client.verifyIdToken({ idToken: tokenId, audience: process.env.REACT_APP_GOOGLE_CLIENT_ID }).then((response) => {
     const { email_verified, name, email } = response.payload;
 
