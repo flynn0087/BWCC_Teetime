@@ -1,25 +1,20 @@
 /* eslint-disable no-unused-vars */
-import React, { useContext, useState } from "react";
+import React from "react";
 import { GoogleLogin } from "react-google-login";
 import { refreshTokenSetup } from "../utils/refreshToken";
 import axios from "axios";
-import { LoginContext } from "../utils/UserContext";
 
 function Login() {
   const googleSuccess = async (res) => {
     const google = await res;
-
+    console.log(google);
     axios({
       method: "POST",
       url: "/api/googlelogin",
       headers: {
         "Content-Type": "application/json",
       },
-      data: {
-        tokenId: google.tokenId,
-        id: google.googleId,
-        headshot: google.profileObj.imageUrl,
-      },
+      data: { tokenId: google.tokenId },
     })
       .then((response) => {
         console.log(response);
@@ -27,7 +22,7 @@ function Login() {
       .catch((error) => {
         console.log(error);
       });
-    // refreshTokenSetup(res);
+    refreshTokenSetup(res);
   };
 
   const googleFailure = (res) => {
@@ -39,7 +34,7 @@ function Login() {
     <section className="App h-screen w-full flex justify-center items-center bg-green-500">
       <div className="w-full max-w-md bg-gray-800">
         <div className="text-center bg-white shadow-md rounded px-8 py-8 pt-8">
-          <h3>Sudds</h3>
+          <h3>Sudz-Time</h3>
           <hr></hr>
           <p className="m-10">For Scheduling your Car Wash on the Run</p>
           <GoogleLogin
@@ -50,6 +45,8 @@ function Login() {
             cookiePolicy={"single_host_origin"}
             style={{ marginTop: "100px" }}
             isSignedIn={true}
+            uxMode="redirect"
+            redirectUri="http://localhost:8080/home"
           />
         </div>
       </div>
