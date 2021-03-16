@@ -1,10 +1,13 @@
 /* eslint-disable no-unused-vars */
-import React from "react";
+import React, {useContext} from "react";
 import { GoogleLogin } from "react-google-login";
 import { refreshTokenSetup } from "../utils/refreshToken";
 import axios from "axios";
+import LoginContext from "../utils/LoginContext";
 
 function Login() {
+
+  const { isLoggedIn, checkIfLoggedIn } = useContext(LoginContext);
   const googleSuccess = async (res) => {
     const googleId = res.profileObj.googleId;
     const google = await res;
@@ -18,6 +21,9 @@ function Login() {
       data: { tokenId: google.tokenId, id: googleId },
     })
       .then((response) => {
+        if (response.googleId && isLoggedIn === false) {
+          checkIfLoggedIn();
+        }
         console.log(response);
       })
       .catch((error) => {
