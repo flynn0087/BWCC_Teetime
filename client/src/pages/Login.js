@@ -1,14 +1,17 @@
 /* eslint-disable no-unused-vars */
-import React from "react";
+import React, {useContext} from "react";
 import { GoogleLogin } from "react-google-login";
-import { refreshTokenSetup } from "../utils/refreshToken";
+// import { refreshTokenSetup } from "../utils/refreshToken";
 import axios from "axios";
+import LoginContext from "../utils/LoginContext";
 
 function Login() {
+
+  const { isLoggedIn, checkIfLoggedIn } = useContext(LoginContext);
   const googleSuccess = async (res) => {
     const googleId = res.profileObj.googleId;
+    console.log(googleId, "googId");
     const google = await res;
-    console.log(google);
     axios({
       method: "POST",
       url: "/api/googlelogin",
@@ -18,12 +21,16 @@ function Login() {
       data: { tokenId: google.tokenId, id: googleId },
     })
       .then((response) => {
-        console.log(response);
+        console.log(response, "USER INFO");
+        if (response.googleId && isLoggedIn === false) {
+          checkIfLoggedIn();
+        }
+        console.log(response, "isLoggedIn");
       })
       .catch((error) => {
         console.log(error);
       });
-    refreshTokenSetup(res);
+    // refreshTokenSetup(res);
   };
 
   const googleFailure = (res) => {
@@ -45,9 +52,9 @@ function Login() {
             onFailure={googleFailure}
             cookiePolicy={"single_host_origin"}
             style={{ marginTop: "100px" }}
-            isSignedIn={true}
-            uxMode="redirect"
-            redirectUri="http://localhost:8080/home"
+           isSignedIn={true}
+            // uxMode="redirect"
+            // redirectUri="http://localhost:8080/home"
           />
         </div>
       </div>

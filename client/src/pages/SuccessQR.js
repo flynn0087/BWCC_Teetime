@@ -1,9 +1,10 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
+
 import Success from "../components/Success/Success";
 import Navbar from "../components/Navbar/Navbar";
 
-function SuccessQR() {
+function SuccessQR(  ) {
   return (
     <div>
       <Navbar />
@@ -33,6 +34,8 @@ function SuccessQR() {
       </div>
     </div>
   );
+
 }
+
 
 export default SuccessQR;
