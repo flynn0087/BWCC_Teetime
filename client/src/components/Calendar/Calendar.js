@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useState } from "react";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
@@ -34,10 +35,27 @@ function Nalendar(props) {
               console.log(val);
               setDateVal(val);
               if ((dateVal !== "") & (time !== "")) {
+
                 //axios call
-                console.log("Damnnnnn Daniel");
-                setTime("");
-                setDateVal("");
+  
+                axios({
+                  method: "POST",
+                  url: "api/appointments",
+                  data :{
+                  date : dateVal[0],
+                  day: dateVal[1],
+                  year: dateVal[2]
+                  },
+                })
+                .then((response) => {
+                  console.log(response, "DATE DAY YEAR CALENDAR.JS");
+                  setTime("");
+                  setDateVal("");
+                })
+                .catch((error) => {
+                  console.log(error);
+                });
+                
               }
             }}
           />
