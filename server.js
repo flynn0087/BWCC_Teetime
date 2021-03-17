@@ -33,7 +33,7 @@ app.use(passport.session());
 app.use(routes);
 
 mongoose
-  .connect(process.env.MONGO_URI || `mongodb://${process.env.HOST}/${process.env.DB_NAME}`, {
+  .connect(process.env.MONGODB_URI || `mongodb://${process.env.HOST}/${process.env.DB_NAME}`, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useFindAndModify: false,
