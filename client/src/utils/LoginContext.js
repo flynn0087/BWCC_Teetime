@@ -1,6 +1,10 @@
-import React from "react";
+import React, { createContext } from "react";
 
-export default React.createContext({
+const LoginContext = createContext({
   isLoggedIn: false,
-  checkIfLoggedIn: () => {}
+  checkIfLoggedIn: (response) => {},
+  name: "",
+  headshot: "",
 });
+
+export default LoginContext;
