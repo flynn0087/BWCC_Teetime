@@ -8,6 +8,7 @@ import SuccessQR from "./pages/SuccessQR";
 import Login from "./pages/Login";
 import LogoutPage from "./pages/LogoutPage";
 import LoginContext from "./utils/LoginContext";
+import Navbar from "./components/Navbar/Navbar";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState({
@@ -38,10 +39,11 @@ function App() {
     });
   };
   return (
-    <div>
+    <div className="bg-green-500">
       <Router>
         <LoginContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
           <Route exact path="/" component={Login} />
+          <Navbar />
           <PrivateRoute path="/home" component={Home} />
           <PrivateRoute path="/calendar" component={Calendar} />
           <PrivateRoute path="/successqr" component={SuccessQR} />
