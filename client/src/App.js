@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
-import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Home from "./pages/Home";
 import PrivateRoute from "./utils/PrivateRoutes";
 import Calendar from "./pages/Calendar";
@@ -42,9 +42,11 @@ function App() {
       <Router>
         <LoginContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
           <Route exact path="/" component={Login} />
+          <Switch>
           <PrivateRoute path="/home" component={Home} />
           <PrivateRoute path="/calendar" component={Calendar} />
           <PrivateRoute path="/successqr" component={SuccessQR} />
+          </Switch>
           <Route path="/logout" component={LogoutPage} />
         </LoginContext.Provider>
       </Router>
