@@ -2,24 +2,19 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const AppointmentSchema = new Schema({
-  googleId: {
+  day: {
     type: String,
     required: true,
-    unique: true,
+  },
+  month: {
+    type: String,
+    required: true,
   },
   date: {
     type: String,
     required: true,
   },
-  day: {
-    type: String,
-    required: true,
-  },
   year: {
-    type: String,
-    required: true,
-  },
-  time: {
     type: String,
     required: true,
   },

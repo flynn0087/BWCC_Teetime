@@ -42,13 +42,14 @@ function Nalendar(props) {
                   method: "POST",
                   url: "api/appointments",
                   data :{
-                  date : dateVal[0],
-                  day: dateVal[1],
-                  year: dateVal[2]
+                  day: dateVal[0],
+                  month: dateVal[1],
+                  date : dateVal[2],
+                  year: dateVal[3]
                   },
                 })
                 .then((response) => {
-                  console.log(response, "DATE DAY YEAR CALENDAR.JS");
+                  console.log(response, "DAY MONTH DATE YEAR CALENDAR.JS");
                   setTime("");
                   setDateVal("");
                 })
