@@ -44,7 +44,7 @@ function App() {
           <Route exact path="/" component={Login} />
           <Switch>
           <PrivateRoute path="/home" component={Home} />
-          <PrivateRoute path="/calendar" component={Calendar} />
+          <Route path="/calendar" component={Calendar} />
           <PrivateRoute path="/successqr" component={SuccessQR} />
           </Switch>
           <Route path="/logout" component={LogoutPage} />
