@@ -20,8 +20,8 @@ const AppointmentSchema = new Schema({
     required: true,
   },
   time: {
-    type: Date,
-    default: Date.now,
+    type: String,
+    required: true,
   },
 });
 
