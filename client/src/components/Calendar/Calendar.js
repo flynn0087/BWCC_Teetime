@@ -32,8 +32,9 @@ function Nalendar(props) {
             onChange={onChange}
             value={[new Date()]}
             onClickDay={() => {
-              console.log(val);
+              console.log(val, "VAl from Calendar.js");
               setDateVal(val);
+              console.log(setDateVal(val), "setDateVal(val) on Calendar.js");
               if ((dateVal !== "") & (time !== "")) {
 
                 //axios call
