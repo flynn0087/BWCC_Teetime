@@ -26,7 +26,9 @@ function ReactSelectCal(props) {
           return;
         }
         props.setTime(e.target.textContent);
+        console.log(props.setTime(e.target.textContent), "props.setTime(e.target.textContent on ReactSelectCal.js");
         if (props.dateVal !== "" && props.time !== "") {
+          console.log(props.setTime(e.target.textcontent), "part 2 on ReactSelectCalendar");
           //axios call
           console.log(e.target.textContent, "SELECTCAL TIME ON ReactSelectCal.js");
           console.log("Damnnnnn Daniel");
