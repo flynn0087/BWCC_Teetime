@@ -1,8 +1,12 @@
 /* eslint-disable no-unused-vars */
-import React from "react";
+import React, { useContext } from "react";
 import Navbar from "../components/Navbar/Navbar";
 
+import LoginContext from "../utils/LoginContext";
+
 function Home() {
+  const { isLoggedIn } = useContext(LoginContext);
+  console.log(isLoggedIn);
   return (
     <div>
       {/* // Start of the Modal */}
@@ -13,7 +17,7 @@ function Home() {
           <span className="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">
             &#8203;
           </span>
-
+          <h1>{isLoggedIn.name}</h1>
           <main
             className="inline-block align-bottom bg-gray-300 rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
             role="dialog"
