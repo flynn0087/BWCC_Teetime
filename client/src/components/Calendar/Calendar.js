@@ -1,21 +1,45 @@
 import React, { useState } from "react";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
+
 import Navbar from "../Navbar/Navbar";
+import ReactSelectCal from "../ReactSelectCal/ReactSelectCal";
 
 function Nalendar(props) {
   const [value, onChange] = useState(new Date());
+  const [time, setTime] = useState("");
+  const [dateVal, setDateVal] = useState("");
   let val = value.toDateString();
   return (
     <div>
       <Navbar />
       <div className="mx-auto container">
+        <ReactSelectCal
+          time={time}
+          setTime={setTime}
+          dateVal={dateVal}
+          setDateVal={setDateVal}
+          // onClick={(e) => console.log(e.target.textContent)}
+          // eslint-disable-next-line no-undef
+          // onClick={this.array[i].value}
+          // // // eslint-disable-next-line no-undef
+          // onClick={console.log(array[0].value)}
+        />
         <section className="App h-screen w-full flex justify-center items-center bg-green-500">
           <Calendar
             className="p-5 w-auto"
             onChange={onChange}
             value={[new Date()]}
-            onClickDay={console.log(val)}
+            onClickDay={() => {
+              console.log(val);
+              setDateVal(val);
+              if ((dateVal !== "") & (time !== "")) {
+                //axios call
+                console.log("Damnnnnn Daniel");
+                setTime("");
+                setDateVal("");
+              }
+            }}
           />
         </section>
       </div>
