@@ -3,9 +3,10 @@ import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
-import { INITIAL_EVENTS, createEventId } from '../../utils/event.js'
+import { INITIAL_EVENTS, createEventId } from "../../utils/event.js";
 import Navbar from "../Navbar/Navbar";
 import "./style.css";
+import axios from "axios";
 
 export default class Demo extends React.Component {
   render() {
@@ -35,42 +36,62 @@ export default class Demo extends React.Component {
     );
   }
 
-  handleTimeSelect = (selectInfo) => {
-    let title = prompt('Please indicate which customer is scheduled for a carwash')
-    let calendarApi = selectInfo.view.calendar
+  handleTimeSelect = (selectParams) => {
+    let title = prompt(
+      "Please indicate which customer is scheduled for a carwash"
+    );
+    let calendarApi = selectParams.view.calendar;
 
-    calendarApi.unselect() // clear date selection
+    calendarApi.unselect(); // clear date selection
 
     if (title) {
       calendarApi.addEvent({
-        id: createEventId(),
-        title,
-        start: selectInfo.startStr,
-        end: selectInfo.endStr,
-        allDay: selectInfo.allDay
+        title: title,
+        start: selectParams.startStr,
+        end: selectParams.endStr,
+        allDay: selectParams.allDay,
+      });
+      console.log("We're about to try to post it to DB!!");
+      axios({
+        method: "POST",
+        url: "/api/events",
+        data: {
+          title: title,
+          start: selectParams.startStr,
+          end: selectParams.endStr,
+          allDay: selectParams.allDay,
+        },
       })
+        .then((response) => {
+          console.log("You've posted!");
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      console.log("We're through the post axios.");
     }
-  }
+  };
 
   handleEventClick = (clickInfo) => {
     // eslint-disable-next-line no-restricted-globals
     if (confirm(`Are you sure you want to remove this reservation`)) {
-      clickInfo.event.remove()
+      clickInfo.event.remove();
     }
-  }
+  };
 
   handleEvents = (events) => {
     this.setState({
-      currentEvents: events
-    })
-  }
+      currentEvents: events,
+    });
+  };
 }
 
 function renderEventContent(eventInfo) {
-    return (
-      <>
-        <b>{eventInfo.timeText}</b>
-        <i>{eventInfo.event.title}</i>
-      </>
-    )
+  return (
+    <>
+      <b>{eventInfo.timeText}</b>
+      <i>{eventInfo.event.title}</i>
+    </>
+  );
 }
