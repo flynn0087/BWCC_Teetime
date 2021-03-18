@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
@@ -10,7 +10,7 @@ import axios from "axios";
 
 function Demo() {
   const [state, setState] = useState({});
-
+  console.log(state);
   const handleTimeSelect = (selectParams) => {
     let title = prompt("Please indicate which customer is scheduled for a carwash");
     let calendarApi = selectParams.view.calendar;
@@ -65,6 +65,13 @@ function Demo() {
   const handleEvents = (events) => {
     setState(events);
   };
+
+  useEffect(() => {
+    console.log("this is useEffect redirect");
+    if (isLoggedIn.isSignedIn === true) {
+      history.push("/home");
+    }
+  }, [isLoggedIn.isSignedIn]);
 
   return (
     <div>
