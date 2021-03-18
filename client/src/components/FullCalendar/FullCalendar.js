@@ -13,6 +13,7 @@ export default class Demo extends React.Component {
         <div className="mx-auto container bg-green-500">
                 <FullCalendar
                     plugins={[ dayGridPlugin, timeGridPlugin, interactionPlugin ]}
+                    timeZone= "CDT"
                     initialView="timeGridWeek"
                     slotDuration= "00:15:00"
                     slotMinTime= "06:00:00"
