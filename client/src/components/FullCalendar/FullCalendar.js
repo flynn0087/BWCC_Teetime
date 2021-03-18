@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import FullCalendar from "@fullcalendar/react";
-import dayGridPlugin, { Table } from "@fullcalendar/daygrid";
+import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import "./style.css";
@@ -67,8 +67,8 @@ function Demo() {
   function renderEventContent(eventInfo) {
     return (
       <>
-        <b>{eventInfo.timeText}</b>
-        <i>{eventInfo.event.title}</i>
+        <b>{events.data.map(eventInfo.timeText)}</b>
+        <i>{events.data.map(eventInfo.event.title)}</i>
       </>
     );
   }
@@ -87,11 +87,6 @@ function Demo() {
   return (
     <div>
       <div className="mx-auto container bg-green-500">
-        {/* <table>
-          <tbody>{events.map((data[0]) => (
-          <h1>{timeStuff}</h1>
-          ))}</tbody>
-        </table> */}
         <FullCalendar
           plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
           headerToolbar={{
