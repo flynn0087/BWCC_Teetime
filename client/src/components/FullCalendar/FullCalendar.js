@@ -6,6 +6,7 @@ import interactionPlugin from "@fullcalendar/interaction";
 import { INITIAL_EVENTS, createEventId } from "../../utils/event.js";
 import Navbar from "../Navbar/Navbar";
 import "./style.css";
+import axios from "axios";
 
 export default class Demo extends React.Component {
   render() {
@@ -34,20 +35,38 @@ export default class Demo extends React.Component {
     );
   }
 
-  handleTimeSelect = (selectInfo) => {
+  handleTimeSelect = (selectParams) => {
     let title = prompt("Please indicate which customer is scheduled for a carwash");
-    let calendarApi = selectInfo.view.calendar;
+    let calendarApi = selectParams.view.calendar;
 
     calendarApi.unselect(); // clear date selection
 
     if (title) {
       calendarApi.addEvent({
-        id: createEventId(),
-        title,
-        start: selectInfo.startStr,
-        end: selectInfo.endStr,
-        allDay: selectInfo.allDay,
+        title: title,
+        start: selectParams.startStr,
+        end: selectParams.endStr,
+        allDay: selectParams.allDay,
       });
+      console.log("We're about to try to post it to DB!!");
+      axios({
+        method: "POST",
+        url: "/api/events",
+        data: {
+          title: title,
+          start: selectParams.startStr,
+          end: selectParams.endStr,
+          allDay: selectParams.allDay,
+        },
+      })
+        .then((response) => {
+          console.log("You've posted!");
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      console.log("We're through the post axios.");
     }
   };
 

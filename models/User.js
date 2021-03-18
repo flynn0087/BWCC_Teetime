@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-
 const UserSchema = new Schema({
   googleId: {
     type: String,
@@ -19,11 +18,9 @@ const UserSchema = new Schema({
   headshot: {
     type: String,
   },
+  title: [{ type: Schema.Types.ObjectId, ref: "Event" }],
 });
 
-
 const User = mongoose.model("users", UserSchema);
-
-
 
 module.exports = User;

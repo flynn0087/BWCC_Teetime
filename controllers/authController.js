@@ -34,18 +34,20 @@ exports.googlelogin = (req, res) => {
               error: "I don't know what Happened!",
             });
           }
-          console.log("NEW USER CREATED TO DATABASE!!!");
+          console.log(data, "NEW USER CREATED TO DATABASE!!!");
           res.json({
             name: data.name,
             headshot: data.headshot,
+            title: data.appointments,
           });
         });
       } else {
-        console.log("EXISTING USER DATA!!!");
+        console.log(res, "EXISTING USER DATA!!!");
         res.json({
           name: name,
           headshot: headshot,
           tokenId,
+          title: res.appointments,
         });
       }
     }
