@@ -3,7 +3,7 @@ import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
-import { INITIAL_EVENTS, createEventId } from '../../utils/event.js'
+import { INITIAL_EVENTS, createEventId } from "../../utils/event.js";
 import Navbar from "../Navbar/Navbar";
 import "./style.css";
 
@@ -11,7 +11,6 @@ export default class Demo extends React.Component {
   render() {
     return (
       <div>
-        <Navbar />
         <div className="mx-auto container bg-green-500">
           <FullCalendar
             plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
@@ -36,10 +35,10 @@ export default class Demo extends React.Component {
   }
 
   handleTimeSelect = (selectInfo) => {
-    let title = prompt('Please indicate which customer is scheduled for a carwash')
-    let calendarApi = selectInfo.view.calendar
+    let title = prompt("Please indicate which customer is scheduled for a carwash");
+    let calendarApi = selectInfo.view.calendar;
 
-    calendarApi.unselect() // clear date selection
+    calendarApi.unselect(); // clear date selection
 
     if (title) {
       calendarApi.addEvent({
@@ -47,30 +46,30 @@ export default class Demo extends React.Component {
         title,
         start: selectInfo.startStr,
         end: selectInfo.endStr,
-        allDay: selectInfo.allDay
-      })
+        allDay: selectInfo.allDay,
+      });
     }
-  }
+  };
 
   handleEventClick = (clickInfo) => {
     // eslint-disable-next-line no-restricted-globals
     if (confirm(`Are you sure you want to remove this reservation`)) {
-      clickInfo.event.remove()
+      clickInfo.event.remove();
     }
-  }
+  };
 
   handleEvents = (events) => {
     this.setState({
-      currentEvents: events
-    })
-  }
+      currentEvents: events,
+    });
+  };
 }
 
 function renderEventContent(eventInfo) {
-    return (
-      <>
-        <b>{eventInfo.timeText}</b>
-        <i>{eventInfo.event.title}</i>
-      </>
-    )
+  return (
+    <>
+      <b>{eventInfo.timeText}</b>
+      <i>{eventInfo.event.title}</i>
+    </>
+  );
 }
