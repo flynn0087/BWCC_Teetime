@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import Navbar from "../components/Navbar/Navbar";
+
 import { Link } from "react-router-dom";
 import LoginContext from "../utils/LoginContext";
 
@@ -7,7 +7,6 @@ function LogoutPage() {
   const { isLoggedIn, setIsLoggedIn } = useContext(LoginContext);
   return (
     <div>
-      <Navbar />
       <div className="container mx-auto">
         <div className="flow-root bg-green-500">
           <p className="mt-20 text-center text-white text-2xl">You have successfully logged out!</p>
