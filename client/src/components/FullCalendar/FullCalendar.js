@@ -3,14 +3,26 @@ import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
-
-import Navbar from "../Navbar/Navbar";
 import "./style.css";
 import axios from "axios";
+import API from "../../utils/API";
 
 function Demo() {
   const [state, setState] = useState({});
   console.log(state);
+  const [events, setEvents] = useState([]);
+  console.log(events);
+  useEffect(() => {
+    loadEvents();
+  }, []);
+
+  const loadEvents = () => {
+    API.getEvents()
+      .then((res) => {
+        setEvents(res);
+      })
+      .catch((err) => console.log(err));
+  };
   const handleTimeSelect = (selectParams) => {
     let title = prompt("Please indicate which customer is scheduled for a carwash");
     let calendarApi = selectParams.view.calendar;
@@ -68,7 +80,6 @@ function Demo() {
 
   return (
     <div>
-      <Navbar />
       <div className="mx-auto container bg-green-500">
         <FullCalendar
           plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
