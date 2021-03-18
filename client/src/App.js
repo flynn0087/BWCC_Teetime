@@ -46,7 +46,7 @@ function App() {
           <Navbar />
           <Switch>
             <PrivateRoute path="/home" component={Home} />
-            <Route path="/calendar" component={Calendar} />
+            <PrivateRoute path="/calendar" component={Calendar} />
             <PrivateRoute path="/successqr" component={SuccessQR} />
           </Switch>
           <Route path="/logout" component={LogoutPage} />
