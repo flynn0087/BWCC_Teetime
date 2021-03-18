@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import FullCalendar from "@fullcalendar/react";
-import dayGridPlugin from "@fullcalendar/daygrid";
+import dayGridPlugin, { Table } from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import "./style.css";
@@ -9,9 +9,14 @@ import API from "../../utils/API";
 
 function Demo() {
   const [state, setState] = useState({});
-  console.log(state);
+  console.log(state, "this is the state");
+
+
   const [events, setEvents] = useState([]);
-  console.log(events);
+  console.log(events.data, "this is events.data");
+  console.log(events, "this is events");
+
+
   useEffect(() => {
     loadEvents();
   }, []);
@@ -20,6 +25,7 @@ function Demo() {
     API.getEvents()
       .then((res) => {
         setEvents(res);
+        console.log(setEvents(res), "setEvents(res)")
       })
       .catch((err) => console.log(err));
   };
@@ -81,6 +87,11 @@ function Demo() {
   return (
     <div>
       <div className="mx-auto container bg-green-500">
+        {/* <table>
+          <tbody>{events.map((data[0]) => (
+          <h1>{timeStuff}</h1>
+          ))}</tbody>
+        </table> */}
         <FullCalendar
           plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
           headerToolbar={{

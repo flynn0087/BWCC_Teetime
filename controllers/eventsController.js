@@ -2,9 +2,8 @@ const Event = require("../models/Event");
 
 // Defining methods for the usersController
 module.exports = {
-  findAll: (req, res) => {
-    Event.findAll({})
-      .sort()
+  findAll: (_req, res) => {
+    Event.find({})
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
