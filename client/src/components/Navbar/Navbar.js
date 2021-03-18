@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
+import { Link } from "react-router-dom";
 import Logout from "../Logout/Logout";
 
 function Navbar() {
@@ -11,12 +12,18 @@ function Navbar() {
             <nav className="flex items-center">
               <nav>
                 <nav className="ml-10 flex items-baseline space-x-4">
-                  <a
-                    href="/calendar"
+                  <Link to="/calendar"
                     className="text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                   >
                     Car Wash Calendar
-                  </a>
+                  </Link>
+                </nav>
+                <nav className="ml-10 flex items-baseline space-x-4">
+                  <Link to="/successQR"
+                    className="text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                  >
+                   Success QR
+                  </Link>
                 </nav>
               </nav>
               <Logout />
