@@ -66,13 +66,6 @@ function Demo() {
     setState(events);
   };
 
-  useEffect(() => {
-    console.log("this is useEffect redirect");
-    if (isLoggedIn.isSignedIn === true) {
-      history.push("/home");
-    }
-  }, [isLoggedIn.isSignedIn]);
-
   return (
     <div>
       <Navbar />
