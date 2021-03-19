@@ -76,15 +76,16 @@ function Demo() {
 
   const handleEventClick = (clickInfo) => {
     console.log(clickInfo, "this is clickInfo");
+    let eventTitle = clickInfo.event.title;
     // eslint-disable-next-line no-restricted-globals
     if (confirm(`Are you sure you want to remove this reservation`)) {
       clickInfo.event.remove();
       console.log(clickInfo.event.remove(), "this is clickInfo.event.remove");
       axios({
         method: "DELETE",
-        url: "/api/events/:title",
+        url: "/api/events/title",
         data: {
-          id: clickInfo.event.title
+          title: eventTitle,
         },
       })
         .then((response) => {

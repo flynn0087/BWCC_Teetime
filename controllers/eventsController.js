@@ -26,8 +26,9 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   remove: (req, res) => {
+    console.log(eventTitle, "req.params.title");
     db.Event
-      .findOneAndDelete({ title: req.params.body })
+      .findOneAndDelete({ title: eventTitle})
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
