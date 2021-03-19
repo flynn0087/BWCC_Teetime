@@ -7,7 +7,6 @@ import Navbar from "../components/Navbar/Navbar";
 function SuccessQR(  ) {
   return (
     <div>
-      <Navbar />
       <div className="container mx-auto">
         <div className="flow-root bg-green-500">
           <p className="text-center my-10 text-yellow-300 text-4xl">SUCCESS AND CONFIRMATION</p>
