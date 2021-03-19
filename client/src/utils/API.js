@@ -14,12 +14,24 @@ export default {
   deleteAppointment: function (id) {
     return axios.delete("/api/appointments/" + id);
   },
-  // Saves a appointment to the database
+  // Saves an appointment to the database
   saveAppointment: function (appointmentData) {
     return axios.post("/api/appointments", appointmentData);
   },
-  // Saves an event to the database
-  events: function (eventData) {
-    return axios.post("/api/events", eventData);
-  },
+    // Gets all events
+    getEvents: function () {
+      return axios.get("/api/events");
+    },
+    // Gets the event with the given id
+    getEvent: function (id) {
+      return axios.get("/api/events/" + id);
+    },
+    // Deletes the event with the given id
+    deleteEvent: function (id) {
+      return axios.delete("/api/events/" + id);
+    },
+    // Saves an event to the database
+    saveEvent: function (id) {
+      return axios.post("/api/events" + id);
+    },
 };

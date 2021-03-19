@@ -3,14 +3,33 @@ import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
-
-import Navbar from "../Navbar/Navbar";
 import "./style.css";
 import axios from "axios";
+import API from "../../utils/API";
 
 function Demo() {
   const [state, setState] = useState({});
-  console.log(state);
+  console.log(state, "this is the state");
+
+
+  const [initialEvents, setInitialEvents] = useState([]);
+  console.log(initialEvents.data, "this is events.data");
+  console.log(initialEvents, "this is events");
+
+
+  // useEffect(() => {
+  //   loadEvents();
+  // }, []);
+
+  const loadEvents = (info, successCallback, failureCallback) => {
+    API.getEvents()
+      .then((res) => {
+        // setInitialEvents(res);
+        // console.log(setEvents(res), "setEvents(res)");
+         successCallback(res.data);
+      })
+      .catch((err) => console.log(err));
+  };
   const handleTimeSelect = (selectParams) => {
     let title = prompt("Please indicate which customer is scheduled for a carwash");
     let calendarApi = selectParams.view.calendar;
@@ -68,7 +87,6 @@ function Demo() {
 
   return (
     <div>
-      <Navbar />
       <div className="mx-auto container bg-green-500">
         <FullCalendar
           plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
@@ -78,14 +96,16 @@ function Demo() {
             right: "dayGridMonth,timeGridWeek,timeGridDay",
           }}
           initialView="timeGridWeek"
+          events={loadEvents}
           slotDuration="00:15:00"
           slotMinTime="06:00:00"
           slotMaxTime="22:00:00"
           selectable="true"
           select={handleTimeSelect}
+          // initalEvents={initialEvents}
           eventContent={renderEventContent}
           eventClick={handleEventClick}
-          eventsSet={handleEvents}
+          // eventsSet={handleEvents}
         />
       </div>
     </div>

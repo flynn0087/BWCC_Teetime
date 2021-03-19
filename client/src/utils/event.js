@@ -12,7 +12,16 @@ export const INITIAL_EVENTS = [
     title: "Timed event",
     start: todayStr + "T12:00:00",
   },
+  
 ];
+
+export const events = [
+{
+   title: 'event 1',
+    date: '2021-03-19' }
+  
+];
+
 
 export function createEventId() {
   console.log(eventGuid);

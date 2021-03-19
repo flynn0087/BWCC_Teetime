@@ -1,31 +1,35 @@
-const Event = require("../models/Event");
+const db = require("../models");
 
-// Defining methods for the usersController
+// Defining methods for the eventsController
 module.exports = {
-  findAll: (req, res) => {
-    Event.sort({ date: -1 })
+  findAll: (_req, res) => {
+    db.Event.find({})
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
   findById: (req, res) => {
-    Event.findById(req.params.id)
-      .then((dbModel) => res.json(dbModel))
-      .catch((err) => res.status(422).json(err));
+    db.Event
+      .findById(req.params.id)
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
   },
   create: (req, res) => {
-    Event.create(req.body)
-      .then((dbModel) => res.json(dbModel))
-      .catch((err) => res.status(422).json(err));
+    db.Event
+      .create(req.body)
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
   },
   update: (req, res) => {
-    Event.findOneAndUpdate({ _id: req.params.id }, req.body)
-      .then((dbModel) => res.json(dbModel))
-      .catch((err) => res.status(422).json(err));
+    db.Event
+      .findOneAndUpdate({ _id: req.params.id }, req.body)
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
   },
   remove: (req, res) => {
-    Event.findById({ _id: req.params.id })
-      .then((dbModel) => dbModel.remove())
-      .then((dbModel) => res.json(dbModel))
-      .catch((err) => res.status(422).json(err));
-  },
+    db.Event
+      .findById({ _id: req.params.id })
+      .then(dbModel => dbModel.remove())
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  }
 };
