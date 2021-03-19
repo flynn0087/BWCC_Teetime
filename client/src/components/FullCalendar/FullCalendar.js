@@ -78,6 +78,15 @@ function Demo() {
     // eslint-disable-next-line no-restricted-globals
     if (confirm(`Are you sure you want to remove this reservation`)) {
       clickInfo.event.remove();
+      axios({
+        method: "DELETE",
+        url: "/api/events",
+        data: {
+          title: title,
+          start: selectParams.startStr,
+          end: selectParams.endStr,
+          allDay: selectParams.allDay,
+        },
     }
   };
 

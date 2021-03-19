@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import LoginContext from "../../utils/LoginContext";
+import Image from "../Image/Image.js"
 
 function Input() {
   const { isLoggedIn } = useContext(LoginContext);
@@ -11,6 +12,7 @@ function Input() {
         <img className="rounded-full" src={isLoggedIn.headshot} alt="headshot"></img>
       </div>
       <br></br>
+      <Image/>
       <hr></hr>
     </div>
   );
