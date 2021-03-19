@@ -2,22 +2,18 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const AppointmentSchema = new Schema({
-  name: {
+  title: {
     type: String,
     required: true,
   },
-  date: {
+  start: {
     type: Date,
-    default: Date.now,
-  },
-  time: {
-    type: Date,
-    default: Date.now,
-  },
-  serviceType: {
-    type: String,
     required: true,
   },
+  end: {
+    type: Date,
+    required: true,
+  }
 });
 
 const Appointment = mongoose.model("appointments", AppointmentSchema);

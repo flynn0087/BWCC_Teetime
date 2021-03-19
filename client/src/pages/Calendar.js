@@ -1,17 +1,15 @@
-/* eslint-disable no-unused-vars */
 
 import React, { useDebugValue, useState } from "react";
 import Demo from "../components/FullCalendar/FullCalendar";
-import Calendar from "react-calendar";
+// import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
-import Navbar from "../components/Navbar/Navbar";
 
 function App() {
   const [value, onChange] = useState(new Date());
   let val = value.toDateString();
   return (
     <div>
-      <Demo />
+      <Demo/>
     </div>
   );
 }
