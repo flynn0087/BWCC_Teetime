@@ -77,6 +77,7 @@ function Demo() {
   const handleEventClick = (clickInfo) => {
     console.log(clickInfo, "this is clickInfo");
     let eventTitle = clickInfo.event.title;
+    console.log(eventTitle, "this is eventTitle declaration");
     // eslint-disable-next-line no-restricted-globals
     if (confirm(`Are you sure you want to remove this reservation`)) {
       clickInfo.event.remove();
