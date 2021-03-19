@@ -18,14 +18,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/flynn0087/Suds_Scheduler.git"
+    "url": "git+https://github.com/flynn0087/BWCC_Teetime"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/flynn0087/Suds_Scheduler/issues"
+    "url": "https://github.com/flynn0087/BWCC_Teetime/issues"
   },
-  "homepage": "https://github.com/flynn0087/Suds_Scheduler#readme",
+  "homepage": "https://bushwood-teetime.herokuapp.com/",
   "dependencies": {
     "axios": "^0.21.1",
     "babel-eslint": "^10.1.0",
