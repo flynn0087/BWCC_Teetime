@@ -8,9 +8,13 @@ function Home() {
   const { isLoggedIn } = useContext(LoginContext);
   console.log(isLoggedIn);
   return (
-    <div>
+    <div className="bg-golf bg-no-repeat bg-fixed bg-cover">
+      
       <Header></Header>
+      
+      
       <Course></Course>
+      
     </div>
   );
 }
