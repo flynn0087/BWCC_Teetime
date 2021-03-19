@@ -12,20 +12,21 @@ function Demo() {
   console.log(state, "this is the state");
 
 
-  const [events, setEvents] = useState([]);
-  console.log(events.data, "this is events.data");
-  console.log(events, "this is events");
+  const [initialEvents, setInitialEvents] = useState([]);
+  console.log(initialEvents.data, "this is events.data");
+  console.log(initialEvents, "this is events");
 
 
-  useEffect(() => {
-    loadEvents();
-  }, []);
+  // useEffect(() => {
+  //   loadEvents();
+  // }, []);
 
-  const loadEvents = () => {
+  const loadEvents = (info, successCallback, failureCallback) => {
     API.getEvents()
       .then((res) => {
-        setEvents(res);
-        console.log(setEvents(res), "setEvents(res)")
+        // setInitialEvents(res);
+        // console.log(setEvents(res), "setEvents(res)");
+         successCallback(res.data);
       })
       .catch((err) => console.log(err));
   };
@@ -67,8 +68,8 @@ function Demo() {
   function renderEventContent(eventInfo) {
     return (
       <>
-        <b>{events.data.map(eventInfo.timeText)}</b>
-        <i>{events.data.map(eventInfo.event.title)}</i>
+        <b>{eventInfo.timeText}</b>
+        <i>{eventInfo.event.title}</i>
       </>
     );
   }
@@ -95,14 +96,16 @@ function Demo() {
             right: "dayGridMonth,timeGridWeek,timeGridDay",
           }}
           initialView="timeGridWeek"
+          events={loadEvents}
           slotDuration="00:15:00"
           slotMinTime="06:00:00"
           slotMaxTime="22:00:00"
           selectable="true"
           select={handleTimeSelect}
+          // initalEvents={initialEvents}
           eventContent={renderEventContent}
           eventClick={handleEventClick}
-          eventsSet={handleEvents}
+          // eventsSet={handleEvents}
         />
       </div>
     </div>
