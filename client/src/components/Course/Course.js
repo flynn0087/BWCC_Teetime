@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+
 function Course() {
     return (
         <div className="container bg-green-500 h-screen p-8 flow-root">
@@ -14,7 +15,7 @@ function Course() {
                 <Link className="text-white" to="/calendar">
                     <button
                         type="button"
-                        className="rounded-md border"
+                        className="rounded-md border border-black"
                     >
                         Go to Tee Time scheduler
                     </button>    

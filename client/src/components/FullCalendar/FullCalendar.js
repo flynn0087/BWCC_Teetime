@@ -97,9 +97,9 @@ function Demo() {
           }}
           initialView="timeGridWeek"
           events={loadEvents}
-          slotDuration="00:15:00"
+          slotDuration="00:10:00"
           slotMinTime="06:00:00"
-          slotMaxTime="22:00:00"
+          slotMaxTime="18:00:00"
           selectable="true"
           select={handleTimeSelect}
           // initalEvents={initialEvents}
