@@ -31,7 +31,7 @@ function Demo() {
       .catch((err) => console.log(err));
   };
   const handleTimeSelect = (selectParams) => {
-    let title = prompt("Please indicate which customer is scheduled for a carwash");
+    let title = prompt("Please indicate which customer is scheduled for a tee-time");
     let calendarApi = selectParams.view.calendar;
 
     calendarApi.unselect(); // clear date selection

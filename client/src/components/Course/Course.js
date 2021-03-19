@@ -4,8 +4,10 @@ import { Link } from "react-router-dom";
 
 function Course() {
     return (
-        <div className="container bg-green-500 h-screen p-8 flow-root">
-            <div className="float-left">
+        <div className="container bg-opacity-0 h-screen p-8 flow-root">
+            <div className="font-bold text-3xl underline">Manage your courses</div>
+            <br></br>
+            <div className="float-left p-4 border border-black bg-green-500 rounded-md ">
                 <p className="text-2xl font-bold">Bushwood Country Club</p>
                 <br></br>
                 <p> 1234 Golf Lane W, Minneapolis, MN 55419</p>
@@ -15,7 +17,7 @@ function Course() {
                 <Link className="text-white" to="/calendar">
                     <button
                         type="button"
-                        className="rounded-md border border-black"
+                        className="rounded-md border bg-white hover:bg-purple-700 text-black font-bold border-black"
                     >
                         Go to Tee Time scheduler
                     </button>    
