@@ -9,7 +9,7 @@ router.route("/")
 
 // Matches with "/api/events/:id"
 router
-  .route("/:id")
+  .route("/:title")
   .get(eventsController.findById)
   .put(eventsController.update)
   .delete(eventsController.remove);

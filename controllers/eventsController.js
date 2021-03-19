@@ -27,7 +27,7 @@ module.exports = {
   },
   remove: (req, res) => {
     db.Event
-      .findById({ _id: req.params.id })
+      .findOneAndDelete({ title: req.params.body })
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));

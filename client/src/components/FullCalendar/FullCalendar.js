@@ -75,9 +75,26 @@ function Demo() {
   }
 
   const handleEventClick = (clickInfo) => {
+    console.log(clickInfo, "this is clickInfo");
     // eslint-disable-next-line no-restricted-globals
     if (confirm(`Are you sure you want to remove this reservation`)) {
       clickInfo.event.remove();
+      console.log(clickInfo.event.remove(), "this is clickInfo.event.remove");
+      axios({
+        method: "DELETE",
+        url: "/api/events/:title",
+        data: {
+          id: clickInfo.event.title
+        },
+      })
+        .then((response) => {
+          console.log("You've posted!");
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      console.log("We're through the post axios.");
     }
   };
 

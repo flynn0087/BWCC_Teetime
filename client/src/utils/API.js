@@ -27,8 +27,8 @@ export default {
       return axios.get("/api/events/" + id);
     },
     // Deletes the event with the given id
-    deleteEvent: function (id) {
-      return axios.delete("/api/events/" + id);
+    deleteEvent: function (title) {
+      return axios.delete("/api/events/" + title);
     },
     // Saves an event to the database
     saveEvent: function (id) {
