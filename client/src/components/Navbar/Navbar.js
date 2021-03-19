@@ -15,7 +15,7 @@ function Navbar() {
                   <Link to="/calendar"
                     className="text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                   >
-                    Car Wash Calendar
+                    Tee Time Calendar
                   </Link>
                 </nav>
                 <nav className="ml-10 flex items-baseline space-x-4">
