@@ -1,17 +1,15 @@
 const express = require("express");
+const { ensureAuth } = require("../../config/middleware/isAuthenticated");
 const router = express.Router();
 const { googlelogin } = require("../../controllers/authController");
 // const db = require("../../models");
 // const passport = require("../../config/passport");
 
-
-
-router.get("/", (req, res) => {
+router.get("/", ensureAuth, (req, res) => {
   res.send("hello");
 });
 
 router.post("/", googlelogin);
-
 
 // // Using the passport.authenticate middleware with our local strategy.
 // // passport.authenticate() is a middle ware provided by passport
@@ -20,7 +18,6 @@ router.post("/", googlelogin);
 //   console.log(req);
 //   res.json(req.user);
 // });
-
 
 // Route for logging user out
 router.get("/logout", (req, res) => {

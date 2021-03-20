@@ -1,8 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable camelcase */
 const User = require("../models/User");
-const { OAuth2Client } = require("google-auth-library");
-const client = new OAuth2Client(process.env.REACT_APP_GOOGLE_CLIENT_ID);
 
 exports.googlelogin = (req, res) => {
   console.log(req.body);
@@ -26,6 +24,7 @@ exports.googlelogin = (req, res) => {
           name: name,
           email: email,
           headshot: headshot,
+          isLoggedIn: true,
         });
         newUser.save((err, data) => {
           if (err) {
@@ -38,6 +37,7 @@ exports.googlelogin = (req, res) => {
           res.json({
             name: data.name,
             headshot: data.headshot,
+            googleId,
           });
         });
       } else {
@@ -46,6 +46,8 @@ exports.googlelogin = (req, res) => {
           name: name,
           headshot: headshot,
           tokenId,
+          isLoggedIn: true,
+          googleId,
         });
       }
     }

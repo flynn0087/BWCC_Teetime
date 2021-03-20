@@ -3,6 +3,7 @@ const userRoutes = require("./users");
 const appointmentRoutes = require("./appointments");
 const authRoutes = require("./auth");
 const eventRoutes = require("./events");
+const { ensureAuth } = require("../../config/middleware/isAuthenticated");
 
 // user routes
 router.use("/users", userRoutes);
@@ -12,6 +13,6 @@ router.use("/appointments", appointmentRoutes);
 
 router.use("/googlelogin", authRoutes);
 
-router.use("/events", eventRoutes);
+router.use("/events", ensureAuth, eventRoutes);
 
 module.exports = router;

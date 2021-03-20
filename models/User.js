@@ -18,11 +18,12 @@ const UserSchema = new Schema({
   headshot: {
     type: String,
   },
+  isLoggedIn: {
+    type: Boolean,
+    required: true,
+  },
 });
 
-
 const User = mongoose.model("users", UserSchema);
-
-
 
 module.exports = User;

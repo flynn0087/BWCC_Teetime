@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
@@ -6,14 +6,17 @@ import interactionPlugin from "@fullcalendar/interaction";
 import "./style.css";
 import axios from "axios";
 import API from "../../utils/API";
+import LoginContext from "../../utils/LoginContext";
 
 function Demo() {
+  const { id } = useContext(LoginContext);
   const [state, setState] = useState({});
+
   console.log(state, "this is the state");
 
-  const [initialEvents, setInitialEvents] = useState([]);
-  console.log(initialEvents.data, "this is events.data");
-  console.log(initialEvents, "this is events");
+  // const [initialEvents, setInitialEvents] = useState([]);
+  // console.log(initialEvents.data, "this is events.data");
+  // console.log(initialEvents, "this is events");
 
   // useEffect(() => {
   //   loadEvents();
@@ -42,6 +45,7 @@ function Demo() {
         allDay: selectParams.allDay,
       });
       console.log("We're about to try to post it to DB!!");
+      console.log(id);
       axios({
         method: "POST",
         url: "/api/events",
@@ -50,6 +54,7 @@ function Demo() {
           start: selectParams.startStr,
           end: selectParams.endStr,
           allDay: selectParams.allDay,
+          googleId: id,
         },
       })
         .then((response) => {
@@ -95,12 +100,12 @@ function Demo() {
     }
   };
 
-  const handleEvents = (events) => {
-    setState(events);
-  };
+  // const handleEvents = (events) => {
+  //   setState(events);
+  // };
 
   return (
-    <div className="mx-auto container">
+    <div className="mx-auto container pt-5">
       <div className="bg-white">
         <FullCalendar
           plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
