@@ -26,6 +26,7 @@ exports.googlelogin = (req, res) => {
           name: name,
           email: email,
           headshot: headshot,
+          isLoggedIn: true
         });
         newUser.save((err, data) => {
           if (err) {
@@ -38,15 +39,23 @@ exports.googlelogin = (req, res) => {
           res.json({
             name: data.name,
             headshot: data.headshot,
+            googleId,
           });
         });
       } else {
         console.log("EXISTING USER DATA!!!");
-        res.json({
-          name: name,
-          headshot: headshot,
-          tokenId,
-        });
+        User.findOneAndUpdate({ googleId }, { isLoggedIn: true} )
+          .then((data)=>{
+            console.log(data, "authController lin 49 data");
+            res.json({
+              name: name,
+              headshot: headshot,
+              tokenId,
+              isLoggedIn: true,
+              googleId: googleId,
+            });
+          }
+          );
       }
     }
   });

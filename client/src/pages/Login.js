@@ -6,8 +6,9 @@ import axios from "axios";
 import LoginContext from "../utils/LoginContext";
 import { useHistory } from "react-router-dom";
 
+
 function Login() {
-  const { isLoggedIn, checkIfLoggedIn } = useContext(LoginContext);
+  const { isLoggedIn, setIsLoggedIn } = useContext(LoginContext);
   const history = useHistory();
   console.log(isLoggedIn.isSignedIn);
 

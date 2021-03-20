@@ -5,6 +5,7 @@ const LoginContext = createContext({
   checkIfLoggedIn: (response) => {},
   name: "",
   headshot: "",
+  id: "",
 });
 
 export default LoginContext;
