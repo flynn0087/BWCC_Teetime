@@ -58,9 +58,9 @@ function Login() {
     <section className="App container h-screen w-full flex justify-center items-center bg-green-500">
       <div className="w-full max-w-md bg-gray-800">
         <div className="text-center bg-white shadow-md rounded px-8 py-8 pt-8">
-          <h3>{isLoggedIn.name}</h3>
+          <h3>The Tee-Time Scheduler</h3>
           <hr></hr>
-          <p className="m-10">For Scheduling your Car Wash on the Run</p>
+          <p className="m-10">It's Tee-Time</p>
           <GoogleLogin
             clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
             buttonText="Login"
