@@ -31,7 +31,7 @@ function Demo() {
       .catch((err) => console.log(err));
   };
   const handleTimeSelect = (selectParams) => {
-    let title = prompt("Please indicate which customer is scheduled for a tee-time");
+    let title = prompt("Please indicate which customer is scheduled for a tee time");
     let calendarApi = selectParams.view.calendar;
 
     calendarApi.unselect(); // clear date selection
@@ -75,8 +75,25 @@ function Demo() {
   }
 
   const handleEventClick = (clickInfo) => {
+    console.log(clickInfo, "this is clickInfo");
+    let eventTitle = clickInfo.event.title;
+    console.log(eventTitle, "this is eventTitle declaration");
     // eslint-disable-next-line no-restricted-globals
     if (confirm(`Are you sure you want to remove this reservation`)) {
+     
+      console.log(clickInfo.event.remove(), "this is clickInfo.event.remove");
+      axios({
+        method: "DELETE",
+        url: "/api/events/" + eventTitle,
+      })
+        .then((response) => {
+          console.log("You've posted!");
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      console.log("We're through the post axios.");
       clickInfo.event.remove();
     }
   };

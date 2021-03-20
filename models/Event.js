@@ -18,6 +18,10 @@ const EventSchema = new Schema({
   allDay: {
     type: Boolean,
   },
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+  },
 });
 
 const Event = mongoose.model("events", EventSchema);
