@@ -4,12 +4,6 @@ const { googlelogin } = require("../../controllers/authController");
 // const db = require("../../models");
 // const passport = require("../../config/passport");
 
-
-
-router.get("/", (req, res) => {
-  res.send("hello");
-});
-
 router.post("/", googlelogin);
 
 

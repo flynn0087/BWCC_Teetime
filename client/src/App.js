@@ -28,6 +28,7 @@ function App() {
         ...isLoggedIn,
         isSignedIn: false,
       });
+      console.log()
     }
     console.log("FROM APP", response);
 
@@ -36,6 +37,7 @@ function App() {
       isSignedIn: true,
       name: response.data.name,
       headshot: response.data.headshot,
+      id: response.data.googleId,
     });
   };
   return (
