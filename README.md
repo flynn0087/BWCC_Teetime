@@ -9,7 +9,8 @@
 5. [Tests](#Tests)
 6. [License](#License)
 7. [GitHub](#GitHub)
-8. [E-mail](#E-mail)
+8. [DevTeam](#DevTeam)
+9. [Contact](#Contact)
 
 ## Description
 
@@ -70,6 +71,17 @@ Please update any tests as appropriate.
 
 https://github.com/flynn0087/BWCC_Teetime
 
+## DevTeam
+This is the Dev Team:
+![Kristina Hamilton's Github.](https://github.com/Kay0s)
+![Demitri Dillard's Github.](https://github.com/Meechlouch)
+![Ben Flynn's Github.](https://github.com/flynn0087)
+![Nate Larson's Github.](https://github.com/ironicminer)
+![Esmond Kim's Github.](https://github.com/EsmondKim)
+
 ## Contact
 
 Contact the dev team via the repo.
+
+
+
