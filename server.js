@@ -19,10 +19,10 @@ app.use(express.json());
 app.use(routes);
 
 
-app.all("/", function (req, res, next) {
-  console.log("Accessing the secret section ...");
-  next(); // pass control to the next handler
-});
+// app.all("/", function (req, res, next) {
+//   console.log("Accessing the secret section ...");
+//   next(); // pass control to the next handler
+// });
 
 mongoose
   .connect(process.env.MONGODB_URI || `mongodb://${process.env.HOST}/${process.env.DB_NAME}`, {

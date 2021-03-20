@@ -73,11 +73,11 @@ https://github.com/flynn0087/BWCC_Teetime
 
 ## DevTeam
 This is the Dev Team:
-![Kristina Hamilton's Github.](https://github.com/Kay0s)
-![Demitri Dillard's Github.](https://github.com/Meechlouch)
-![Ben Flynn's Github.](https://github.com/flynn0087)
-![Nate Larson's Github.](https://github.com/ironicminer)
-![Esmond Kim's Github.](https://github.com/EsmondKim)
+[Kristina Hamilton's Github.](https://github.com/Kay0s)
+[Demitri Dillard's Github.](https://github.com/Meechlouch)
+[Ben Flynn's Github.](https://github.com/flynn0087)
+[Nate Larson's Github.](https://github.com/ironicminer)
+[Esmond Kim's Github.](https://github.com/EsmondKim)
 
 ## Contact
 
