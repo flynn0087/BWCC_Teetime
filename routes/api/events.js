@@ -2,7 +2,7 @@ const router = require("express").Router();
 const eventsController = require("../../controllers/eventsController");
 
 // Matches with "/api/events"
-router.route("/")
+router.route("/",)
   .get(eventsController.findAll)
   .post(eventsController.create);
 

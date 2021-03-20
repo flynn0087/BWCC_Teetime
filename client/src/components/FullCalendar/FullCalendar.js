@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
@@ -6,8 +6,10 @@ import interactionPlugin from "@fullcalendar/interaction";
 import "./style.css";
 import axios from "axios";
 import API from "../../utils/API";
+import LoginContext from "../../utils/LoginContext";
 
 function Demo() {
+  const { id } =  useContext(LoginContext);
   const [state, setState] = useState({});
   console.log(state, "this is the state");
 
@@ -42,6 +44,7 @@ function Demo() {
         allDay: selectParams.allDay,
       });
       console.log("We're about to try to post it to DB!!");
+      console.log(id, "googleId");
       axios({
         method: "POST",
         url: "/api/events",
@@ -50,6 +53,7 @@ function Demo() {
           start: selectParams.startStr,
           end: selectParams.endStr,
           allDay: selectParams.allDay,
+          googleId: id,
         },
       })
         .then((response) => {
