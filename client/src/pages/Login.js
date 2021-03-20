@@ -55,15 +55,22 @@ function Login() {
     }
   }, [isLoggedIn.isSignedIn]);
   return (
-    <section className="App container h-screen w-full flex justify-center items-center bg-green-500">
-      <div className="w-full max-w-md bg-gray-800">
-        <div className="text-center bg-white shadow-md rounded px-8 py-8 pt-8">
-          <h3>{isLoggedIn.name}</h3>
+    <section className="App container h-screen w-full flex justify-center items-center bg-green-500 shadow-2xl">
+      <div className="w-full max-w-md bg-gray-800 shadow-2xl">
+        <div className="text-center bg-white rounded pb-8 pl-8 pr-8 pt-8 text-2xl">
+          <p>The Tee-Time Scheduler</p>
+          <img
+            src="https://st2.depositphotos.com/1457362/7253/v/600/depositphotos_72532695-stock-illustration-golf-emblem.jpg"
+            alt="logo"
+            height="400px"
+            width="400px"
+          ></img>
+
           <hr></hr>
-          <p className="m-10">For Scheduling your Car Wash on the Run</p>
+          <p className="m-10">It's Tee-Time</p>
           <GoogleLogin
             clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
-            buttonText="Login"
+            buttonText="Login with Google"
             onSuccess={googleSuccess}
             onFailure={googleFailure}
             cookiePolicy={"single_host_origin"}
