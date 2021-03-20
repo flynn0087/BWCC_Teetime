@@ -25,7 +25,7 @@
   "bugs": {
     "url": "https://github.com/flynn0087/BWCC_Teetime/issues"
   },
-  "homepage": "https://bushwood-teetime.herokuapp.com/",
+  "homepage": ".",
   "dependencies": {
     "axios": "^0.21.1",
     "babel-eslint": "^10.1.0",
