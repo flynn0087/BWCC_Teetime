@@ -11,11 +11,9 @@ function Demo() {
   const [state, setState] = useState({});
   console.log(state, "this is the state");
 
-
   const [initialEvents, setInitialEvents] = useState([]);
   console.log(initialEvents.data, "this is events.data");
   console.log(initialEvents, "this is events");
-
 
   // useEffect(() => {
   //   loadEvents();
@@ -26,7 +24,7 @@ function Demo() {
       .then((res) => {
         // setInitialEvents(res);
         // console.log(setEvents(res), "setEvents(res)");
-         successCallback(res.data);
+        successCallback(res.data);
       })
       .catch((err) => console.log(err));
   };
@@ -80,7 +78,6 @@ function Demo() {
     console.log(eventTitle, "this is eventTitle declaration");
     // eslint-disable-next-line no-restricted-globals
     if (confirm(`Are you sure you want to remove this reservation`)) {
-     
       console.log(clickInfo.event.remove(), "this is clickInfo.event.remove");
       axios({
         method: "DELETE",
@@ -103,8 +100,8 @@ function Demo() {
   };
 
   return (
-    <div>
-      <div className="mx-auto container bg-green-500">
+    <div className="mx-auto container">
+      <div className="bg-white">
         <FullCalendar
           plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
           headerToolbar={{
