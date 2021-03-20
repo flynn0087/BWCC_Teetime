@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const logger = require("morgan");
 const app = express();
 require("dotenv").config();
+const path = require("path");
 
 const PORT = process.env.PORT || 3001;
 const routes = require("./routes");
