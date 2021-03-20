@@ -18,6 +18,7 @@ function Login() {
     const email = res.profileObj.email;
     const headshot = res.profileObj.imageUrl;
     console.log(googleId, "googId");
+    setIsLoggedIn({ id: googleId, ...isLoggedIn});
     const google = await res;
     axios({
       method: "POST",
