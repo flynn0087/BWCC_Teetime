@@ -45,13 +45,14 @@ exports.googlelogin = (req, res) => {
       } else {
         console.log("EXISTING USER DATA!!!");
         User.findOneAndUpdate({ googleId }, { isLoggedIn: true} )
-          .then(()=>{
+          .then((data)=>{
+            console.log(data, "authController lin 49 data");
             res.json({
               name: name,
               headshot: headshot,
               tokenId,
               isLoggedIn: true,
-              googleId,
+              googleId: googleId,
             });
           }
           );

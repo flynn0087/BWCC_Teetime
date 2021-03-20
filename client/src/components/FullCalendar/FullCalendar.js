@@ -44,6 +44,7 @@ function Demo() {
         allDay: selectParams.allDay,
       });
       console.log("We're about to try to post it to DB!!");
+      console.log(id, "googleId");
       axios({
         method: "POST",
         url: "/api/events",

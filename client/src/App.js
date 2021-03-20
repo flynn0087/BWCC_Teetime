@@ -18,6 +18,7 @@ function App() {
     },
     name: "",
     headshot: "",
+    id: "hello i is id",
   });
   console.log(isLoggedIn);
 
@@ -27,6 +28,7 @@ function App() {
       setIsLoggedIn({
         ...isLoggedIn,
         isSignedIn: false,
+        id: response.data.googleId,
       });
       console.log()
     }

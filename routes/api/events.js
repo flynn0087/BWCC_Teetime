@@ -1,9 +1,8 @@
 const router = require("express").Router();
 const eventsController = require("../../controllers/eventsController");
-const { ensureAuth } = require("../../config/middleware/isAuthenticate");
 
 // Matches with "/api/events"
-router.route("/", ensureAuth)
+router.route("/",)
   .get(eventsController.findAll)
   .post(eventsController.create);
 
