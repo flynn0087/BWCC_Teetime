@@ -14,6 +14,12 @@ function Navbar() {
       </Link>
       <div className="ml-10 flex items-center space-x-4 justify-end">
         <Link
+          to="/home"
+          className="text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+        >
+          Home
+        </Link>
+        <Link
           to="/calendar"
           className="text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
         >
