@@ -46,9 +46,9 @@ function App() {
     <div className="bg-green-500">
       <Router>
         <LoginContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
+           <Navbar />
           <Route exact path="/" component={Login} />
-          <Navbar />
-          <Switch>
+          <Switch>  
             <Route path="/home" component={Home} />
             <Route path="/calendar" component={Calendar} />
             <Route path="/successqr" component={SuccessQR} />
