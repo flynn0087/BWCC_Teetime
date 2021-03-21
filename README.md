@@ -41,7 +41,7 @@ Sceenshots
 
 ![Here is a screenshot of the Tee Time Scheduler Calendar Page.](/client/public/images/calendar.jpg)
 <br>
-[Here is a link to the deployed page.](https://bushwood-teetime.herokuapp.com/)<br>
+[Here is a link to the deployed page.](https://powerful-castle-14067.herokuapp.com/)<br>
 
 ## Installation
 
