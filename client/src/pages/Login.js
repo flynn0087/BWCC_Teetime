@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useContext, useEffect } from "react";
 import { GoogleLogin } from "react-google-login";
-// import { refreshTokenSetup } from "../utils/refreshToken";
 import axios from "axios";
 import LoginContext from "../utils/LoginContext";
 import { useHistory } from "react-router-dom";
@@ -10,14 +9,12 @@ import { useHistory } from "react-router-dom";
 function Login() {
   const { isLoggedIn, setIsLoggedIn } = useContext(LoginContext);
   const history = useHistory();
-  console.log(isLoggedIn.isSignedIn);
 
   const googleSuccess = async (res) => {
     const googleId = res.profileObj.googleId;
     const name = res.profileObj.name;
     const email = res.profileObj.email;
     const headshot = res.profileObj.imageUrl;
-    console.log(googleId, "googId");
     setIsLoggedIn({ id: googleId, ...isLoggedIn});
     const google = await res;
     axios({
@@ -35,7 +32,6 @@ function Login() {
       },
     })
       .then((response) => {
-        console.log(response, "USER INFO");
         if (response) {
           isLoggedIn.checkIfLoggedIn(response);
         }
@@ -43,7 +39,6 @@ function Login() {
       .catch((error) => {
         console.log(error);
       });
-    // refreshTokenSetup(res);
   };
 
   const googleFailure = (res) => {
@@ -51,7 +46,6 @@ function Login() {
     alert("Failed to login. 😢");
   };
   useEffect(() => {
-    console.log("this is useEffect redirect");
     if (isLoggedIn.isSignedIn === true) {
       history.push("/home");
     }

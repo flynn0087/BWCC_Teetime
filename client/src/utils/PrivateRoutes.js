@@ -4,9 +4,6 @@ import LoginContext from "./LoginContext";
 
 function PrivateRoute({ component: Component, ...props }) {
   const { isLoggedIn } = useContext(LoginContext);
-  console.log(isLoggedIn.isSignedIn);
-  console.log(Component);
-  console.log(props);
   return (
     <Route
       {...props}

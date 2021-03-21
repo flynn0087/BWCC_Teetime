@@ -5,7 +5,7 @@ import { GoogleLogout } from "react-google-login";
 
 function Logout() {
   const onSuccess = (res) => {
-    console.log("Logout successful!", res);
+    console.log("Logout successful!");
   };
 
   return (

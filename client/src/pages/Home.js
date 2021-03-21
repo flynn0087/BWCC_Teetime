@@ -6,7 +6,6 @@ import LoginContext from "../utils/LoginContext";
 
 function Home() {
   const { isLoggedIn } = useContext(LoginContext);
-  console.log(isLoggedIn);
   return (
     <div className="bg-golf bg-no-repeat bg-fixed bg-cover">
       
