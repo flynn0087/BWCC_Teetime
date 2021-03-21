@@ -22,11 +22,9 @@ const UserSchema = new Schema({
   headshot: {
     type: String,
   },
+  title: [{ type: Schema.Types.ObjectId, ref: "Event" }],
 });
 
-
 const User = mongoose.model("users", UserSchema);
-
-
 
 module.exports = User;

@@ -25,7 +25,7 @@ exports.googlelogin = (req, res) => {
           name: name,
           email: email,
           headshot: headshot,
-          isLoggedIn: true
+          isLoggedIn: true,
         });
         newUser.save((err, data) => {
           if (err) {
@@ -41,17 +41,15 @@ exports.googlelogin = (req, res) => {
           });
         });
       } else {
-        User.findOneAndUpdate({ googleId }, { isLoggedIn: true} )
-          .then((data) => {
-            res.json({
-              name: name,
-              headshot: headshot,
-              tokenId,
-              isLoggedIn: true,
-              googleId: googleId,
-            });
-          }
-          );
+        User.findOneAndUpdate({ googleId }, { isLoggedIn: true }).then((data) => {
+          res.json({
+            name: name,
+            headshot: headshot,
+            tokenId,
+            isLoggedIn: true,
+            googleId: googleId,
+          });
+        });
       }
     }
   });
