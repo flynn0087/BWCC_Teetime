@@ -29,7 +29,6 @@ function Nalendar(_props) {
             onClickDay={() => {
               setDateVal(val);
               if ((dateVal !== "") & (time !== "")) {
-                console.log(dateVal, time ,"dateVal and time")
 
                 //axios call
   
