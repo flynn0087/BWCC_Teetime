@@ -18,21 +18,18 @@ function App() {
     },
     name: "",
     headshot: "",
-    id: "hello i is id",
+    id: "",
   });
-  console.log(isLoggedIn);
 
   const checkIfLoggedIn = (response) => {
     if (isLoggedIn.isSignedIn === true) {
-      console.log("ALSO FROM APP", response);
       setIsLoggedIn({
         ...isLoggedIn,
         isSignedIn: false,
         id: response.data.googleId,
       });
-      console.log()
     }
-    console.log("FROM APP", response);
+
 
     return setIsLoggedIn({
       ...isLoggedIn,
