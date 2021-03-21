@@ -16,16 +16,14 @@ app.use(logger("dev"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+// Add routes, both API and view
 app.use(routes);
+
+// Serve up static assets (usually on heroku)
 app.use(express.static(path.join(__dirname, "./client/build")));
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build"));
 });
-
-// app.all("/", function (req, res, next) {
-//   console.log("Accessing the secret section ...");
-//   next(); // pass control to the next handler
-// });
 
 mongoose
   .connect(
@@ -40,11 +38,9 @@ mongoose
   )
   .then(() => console.log("\n\nMongoDB successfully connected\n\n"))
   .catch((err) => console.log(err));
-// Serve up static assets (usually on heroku)
-// if (process.env.NODE_ENV === "production") {
-//   app.use(express.static("client/build"));
-// }
-// Add routes, both API and view
+
+
+
 
 // Start the API server
 app.listen(PORT, () => {
