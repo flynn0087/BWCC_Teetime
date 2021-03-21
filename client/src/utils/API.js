@@ -18,20 +18,28 @@ export default {
   saveAppointment: function (appointmentData) {
     return axios.post("/api/appointments", appointmentData);
   },
-    // Gets all events
-    getEvents: function () {
-      return axios.get("/api/events");
-    },
-    // Gets the event with the given id
-    getEvent: function (id) {
-      return axios.get("/api/events/" + id);
-    },
-    // Deletes the event with the given id
-    deleteEvent: function (title) {
-      return axios.delete("/api/events/" + title);
-    },
-    // Saves an event to the database
-    saveEvent: function (id) {
-      return axios.post("/api/events" + id);
-    },
+  // Gets all events
+  getEvents: function () {
+    return axios.get("/api/events");
+  },
+  // Gets the event with the given id
+  getEvent: function (id) {
+    return axios.get("/api/events/" + id);
+  },
+  // Deletes the event with the given id
+  deleteEvent: function (title) {
+    return axios.delete("/api/events/" + title);
+  },
+  // Saves an event to the database
+  saveEvent: function (id) {
+    return axios.post("/api/events" + id);
+  },
+  getWeather: function () {
+    const city = "Minneapolis";
+    const apiKey = process.env.REACT_APP_API_KEY;
+
+    const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&appid=${apiKey}`;
+    // const currentWeatherUrl = "https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${API_KEY}"+";
+    return axios.get(apiUrl);
+  },
 };
