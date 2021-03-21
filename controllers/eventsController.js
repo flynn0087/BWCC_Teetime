@@ -26,9 +26,8 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   remove: (req, res) => {
-    console.log (req.params.title, "EVENTSCONTROLLER.JS LINE 29");
     db.Event
-      .findOneAndDelete({ title: req.params.title})
+      .findOneAndDelete({ title: req.params.title })
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))
       .catch(err => console.log(err, "error is"));
