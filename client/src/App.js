@@ -18,6 +18,7 @@ function App() {
     },
     name: "",
     headshot: "",
+    id: "hello i is id",
   });
   console.log(isLoggedIn);
 
@@ -27,7 +28,9 @@ function App() {
       setIsLoggedIn({
         ...isLoggedIn,
         isSignedIn: false,
+        id: response.data.googleId,
       });
+      console.log()
     }
     console.log("FROM APP", response);
 
@@ -36,15 +39,16 @@ function App() {
       isSignedIn: true,
       name: response.data.name,
       headshot: response.data.headshot,
+      id: response.data.googleId,
     });
   };
   return (
     <div className="bg-green-500">
       <Router>
         <LoginContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
+           <Navbar />
           <Route exact path="/" component={Login} />
-          <Navbar />
-          <Switch>
+          <Switch>  
             <PrivateRoute path="/home" component={Home} />
             <PrivateRoute path="/calendar" component={Calendar} />
             <PrivateRoute path="/successqr" component={SuccessQR} />

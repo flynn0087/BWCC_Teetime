@@ -7,6 +7,10 @@ const UserSchema = new Schema({
     required: true,
     unique: true,
   },
+  isLoggedIn: {
+    type: Boolean,
+    required: true,
+  },
   name: {
     type: String,
     required: true,

@@ -7,7 +7,7 @@ const db = require("../models");
 passport.use(new LocalStrategy(
   // Our user will sign in using an email, rather than a "username"
   {
-    name: "email",
+    email: "email",
   },
   // this is the function that passport runs when calling
   // passport.authenticate(), the done() function is built into

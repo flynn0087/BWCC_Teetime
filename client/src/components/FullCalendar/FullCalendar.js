@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
@@ -6,16 +6,16 @@ import interactionPlugin from "@fullcalendar/interaction";
 import "./style.css";
 import axios from "axios";
 import API from "../../utils/API";
+import LoginContext from "../../utils/LoginContext";
 
 function Demo() {
+  const { id } =  useContext(LoginContext);
   const [state, setState] = useState({});
   console.log(state, "this is the state");
-
 
   const [initialEvents, setInitialEvents] = useState([]);
   console.log(initialEvents.data, "this is events.data");
   console.log(initialEvents, "this is events");
-
 
   // useEffect(() => {
   //   loadEvents();
@@ -26,12 +26,12 @@ function Demo() {
       .then((res) => {
         // setInitialEvents(res);
         // console.log(setEvents(res), "setEvents(res)");
-         successCallback(res.data);
+        successCallback(res.data);
       })
       .catch((err) => console.log(err));
   };
   const handleTimeSelect = (selectParams) => {
-    let title = prompt("Please indicate which customer is scheduled for a carwash");
+    let title = prompt("Please indicate which customer is scheduled for a tee time");
     let calendarApi = selectParams.view.calendar;
 
     calendarApi.unselect(); // clear date selection
@@ -44,6 +44,7 @@ function Demo() {
         allDay: selectParams.allDay,
       });
       console.log("We're about to try to post it to DB!!");
+      console.log(id, "googleId");
       axios({
         method: "POST",
         url: "/api/events",
@@ -52,6 +53,7 @@ function Demo() {
           start: selectParams.startStr,
           end: selectParams.endStr,
           allDay: selectParams.allDay,
+          googleId: id,
         },
       })
         .then((response) => {
@@ -75,8 +77,24 @@ function Demo() {
   }
 
   const handleEventClick = (clickInfo) => {
+    console.log(clickInfo, "this is clickInfo");
+    let eventTitle = clickInfo.event.title;
+    console.log(eventTitle, "this is eventTitle declaration");
     // eslint-disable-next-line no-restricted-globals
     if (confirm(`Are you sure you want to remove this reservation`)) {
+      console.log(clickInfo.event.remove(), "this is clickInfo.event.remove");
+      axios({
+        method: "DELETE",
+        url: "/api/events/" + eventTitle,
+      })
+        .then((response) => {
+          console.log("You've posted!");
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      console.log("We're through the post axios.");
       clickInfo.event.remove();
     }
   };
@@ -86,8 +104,8 @@ function Demo() {
   };
 
   return (
-    <div>
-      <div className="mx-auto container bg-green-500">
+    <div className="mx-auto container">
+      <div className="bg-white">
         <FullCalendar
           plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
           headerToolbar={{
@@ -97,9 +115,9 @@ function Demo() {
           }}
           initialView="timeGridWeek"
           events={loadEvents}
-          slotDuration="00:15:00"
+          slotDuration="00:10:00"
           slotMinTime="06:00:00"
-          slotMaxTime="22:00:00"
+          slotMaxTime="18:00:00"
           selectable="true"
           select={handleTimeSelect}
           // initalEvents={initialEvents}

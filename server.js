@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const logger = require("morgan");
 const app = express();
 require("dotenv").config();
+const path = require("path");
 
 const PORT = process.env.PORT || 3001;
 const routes = require("./routes");
@@ -16,20 +17,33 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use(routes);
+app.use(express.static(path.join(__dirname, "./client/build")));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "./client/build"));
+});
+
+// app.all("/", function (req, res, next) {
+//   console.log("Accessing the secret section ...");
+//   next(); // pass control to the next handler
+// });
 
 mongoose
-  .connect(process.env.MONGODB_URI || `mongodb://${process.env.HOST}/${process.env.DB_NAME}`, {
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useFindAndModify: false,
-    useUnifiedTopology: true,
-  })
+  .connect(
+    process.env.MONGODB_URI ||
+      `mongodb://${process.env.HOST}/${process.env.DB_NAME}`,
+    {
+      useNewUrlParser: true,
+      useCreateIndex: true,
+      useFindAndModify: false,
+      useUnifiedTopology: true,
+    }
+  )
   .then(() => console.log("\n\nMongoDB successfully connected\n\n"))
   .catch((err) => console.log(err));
 // Serve up static assets (usually on heroku)
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-}
+// if (process.env.NODE_ENV === "production") {
+//   app.use(express.static("client/build"));
+// }
 // Add routes, both API and view
 
 // Start the API server
