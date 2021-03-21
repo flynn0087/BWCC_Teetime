@@ -19,7 +19,7 @@ exports.googlelogin = (req, res) => {
       });
     } else {
       if (!user) {
-        console.log("CREATING NEW USER" + res);
+        console.log("CREATING NEW USER");
         let newUser = new User({
           googleId: googleId,
           name: name,
@@ -31,7 +31,7 @@ exports.googlelogin = (req, res) => {
           if (err) {
             console.log(err);
             return res.status(400).json({
-              error: "There was an error when tryig to create a new user.  Please try again",
+              error: "There was an error when trying to create a new user.  Please try again",
             });
           }
           res.json({
@@ -42,8 +42,7 @@ exports.googlelogin = (req, res) => {
         });
       } else {
         User.findOneAndUpdate({ googleId }, { isLoggedIn: true} )
-          .then((data)=>{
-            console.log(data, "authController lin 49 data");
+          .then((data) => {
             res.json({
               name: name,
               headshot: headshot,
