@@ -6,7 +6,7 @@ import "react-calendar/dist/Calendar.css";
 import Navbar from "../Navbar/Navbar";
 import ReactSelectCal from "../ReactSelectCal/ReactSelectCal";
 
-function Nalendar(props) {
+function Nalendar(_props) {
   const [value, onChange] = useState(new Date());
   const [time, setTime] = useState("");
   const [dateVal, setDateVal] = useState("");
@@ -27,9 +27,7 @@ function Nalendar(props) {
             onChange={onChange}
             value={[new Date()]}
             onClickDay={() => {
-              console.log(val, "Val from Calendar.js");
               setDateVal(val);
-              console.log(setDateVal(val), "setDateVal(val) on Calendar.js");
               if ((dateVal !== "") & (time !== "")) {
                 console.log(dateVal, time ,"dateVal and time")
 
@@ -45,8 +43,7 @@ function Nalendar(props) {
                   year: dateVal[3]
                   },
                 })
-                .then((response) => {
-                  console.log(response, "DAY MONTH DATE YEAR CALENDAR.JS");
+                .then((_response) => {
                   setTime("");
                   setDateVal("");
                 })
