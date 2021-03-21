@@ -9,10 +9,10 @@ function SuccessQR(  ) {
     <div className="bg-golf bg-no-repeat bg-fixed bg-cover">
       <div className="container mx-auto">
         <div className="flow-root ">
-          <p className="text-center my-10 text-yellow-300 text-4xl">SUCCESS AND CONFIRMATION</p>
+          <p className="text-center my-10 text-yellow-300 text-4xl">Course Events and Reminders</p>
 
           <p className="text-center text-black font-bold my-10 text-2xl">
-            You've scheduled a teetime at Bushwood CC
+            Remind Bushwood's Golfers:
           </p>
         </div>
       </div>
