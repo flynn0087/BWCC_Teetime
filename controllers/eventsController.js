@@ -30,6 +30,6 @@ module.exports = {
       .findOneAndDelete({ title: req.params.title })
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))
-      .catch(err => console.log(err, "error is"));
+      .catch(err => console.log(err));
   }
 };
