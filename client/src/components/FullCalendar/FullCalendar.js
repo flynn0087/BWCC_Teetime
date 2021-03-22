@@ -9,18 +9,16 @@ import API from "../../utils/API";
 import LoginContext from "../../utils/LoginContext";
 
 function Demo() {
-  const { id } =  useContext(LoginContext);
+  const { id } = useContext(LoginContext);
   // eslint-disable-next-line no-unused-vars
   const [state, setState] = useState({});
 
   // eslint-disable-next-line no-unused-vars
   const [initialEvents, setInitialEvents] = useState([]);
-  
 
   const loadEvents = (_info, successCallback, _failureCallback) => {
     API.getEvents()
       .then((res) => {
-    
         successCallback(res.data);
       })
       .catch((err) => console.log(err));
@@ -56,7 +54,6 @@ function Demo() {
         .catch((error) => {
           console.log(error);
         });
-
     }
   };
 
@@ -73,7 +70,6 @@ function Demo() {
     let eventTitle = clickInfo.event.title;
     // eslint-disable-next-line no-restricted-globals
     if (confirm(`Are you sure you want to remove this reservation`)) {
-
       axios({
         method: "DELETE",
         url: "/api/events/" + eventTitle,
@@ -94,7 +90,7 @@ function Demo() {
   };
 
   return (
-    <div className="mx-auto container">
+    <div className="mx-auto container mt-5">
       <div className="bg-white">
         <FullCalendar
           plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
