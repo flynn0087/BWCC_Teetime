@@ -8,7 +8,7 @@ import LoginContext from "../../utils/LoginContext";
 function Navbar() {
   const { isLoggedIn } = useContext(LoginContext);
   return (
-    <nav className="bg-gray-900 py-2 flex flex-row">
+    <nav className="bg-gray-900 py-2 flex flex-row overflow-auto">
       <Link to="/home" className="pl-4">
         <img className="rounded-full" src={isLoggedIn.headshot} alt="headshot"></img>
       </Link>
