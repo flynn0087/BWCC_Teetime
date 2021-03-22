@@ -1,28 +1,10 @@
 const router = require("express").Router();
 const usersController = require("../../controllers/usersController");
-// const { db } = require("../../models/User");
 
 // Matches with "/api/users"
-router.route("/")
-  .get(usersController.findAll)
-  .post(usersController.create);
-
-// router.get("/populateduser", isAuthenticated, (req, res) => {
-//   db.user.find({})
-//     .populate("events")
-//     .the(dbUser => {
-//       res.json(dbUser);
-//     })
-//     .catch(err => {
-//       res.json(err);
-//     });
-// });
+router.route("/").get(usersController.findAll).post(usersController.create);
 
 // Matches with "/api/users/:id"
-router
-  .route("/:id")
-  .get(usersController.findById)
-  .put(usersController.update)
-  .delete(usersController.remove);
+router.route("/:id").get(usersController.findById).put(usersController.update).delete(usersController.remove);
 
 module.exports = router;
