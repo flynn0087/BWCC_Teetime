@@ -51,14 +51,12 @@ function App() {
         <LoginContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
           <WeatherContext.Provider value={{ weather, setWeather }}>
             <Route exact path="/" component={Login} />
-
             {isLoggedIn.isSignedIn === true ? <Navbar></Navbar> : null}
             <Switch>
               <PrivateRoute path="/home" component={Home} />
               <PrivateRoute path="/calendar" component={Calendar} />
               <PrivateRoute path="/successqr" component={SuccessQR} />
             </Switch>
-
             <Route path="/logout" component={LogoutPage} />
           </WeatherContext.Provider>
         </LoginContext.Provider>
