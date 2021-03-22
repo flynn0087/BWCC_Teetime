@@ -31,9 +31,9 @@ function Home() {
   };
 
   return (
-    <div className="bg-golf bg-no-repeat bg-fixed bg-cover">
+    <div className="bg-golf bg-no-repeat bg-fixed bg-cover flex-direction: row">
       <Header></Header>
-      <section className="container flow-root w-1/6 bg-gray-800 p-1 rounded-md">
+      <section className="container overflow-hidden sm:flex-direction: row md:w-1/6 flow-root bg-gray-800 p-1 rounded-md">
         <div className="float-center pl-1 pr-1 pt-1 pb-1 bg-white border border-black rounded-md text-center bg-opacity-60">
           <div className="inline-block mb-5 text-2xl">
             <h1>

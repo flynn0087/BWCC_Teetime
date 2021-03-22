@@ -4,10 +4,9 @@ import { Link } from "react-router-dom";
 
 function Course() {
     return (
-        <div className="container bg-opacity-0 h-screen p-8 flow-root">
-            <div className="font-bold text-3xl underline">Manage your courses</div>
-            <br></br>
-            <div className="float-left p-4 border border-black bg-green-500 rounded-md ">
+        <div className="container bg-opacity-0 h-screen p-8">
+            <div className="sm:float-left font-bold text-3xl underline">Manage your courses</div>
+            <div className="sm:clear-left md:float-left p-4 border border-black bg-green-500 rounded-md ">
                 <p className="text-2xl font-bold">Bushwood Country Club</p>
                 <br></br>
                 <p> 1234 Golf Lane W, Minneapolis, MN 55419</p>
