@@ -1,4 +1,3 @@
-
 import React, { useDebugValue, useState } from "react";
 import Demo from "../components/FullCalendar/FullCalendar";
 // import Calendar from "react-calendar";
@@ -10,10 +9,9 @@ function App() {
   let val = value.toDateString();
   return (
     <div>
-      <Demo/>
+      <Demo />
     </div>
   );
 }
-
 
 export default App;

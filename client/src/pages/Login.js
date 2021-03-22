@@ -5,7 +5,6 @@ import axios from "axios";
 import LoginContext from "../utils/LoginContext";
 import { useHistory } from "react-router-dom";
 
-
 function Login() {
   const { isLoggedIn, setIsLoggedIn } = useContext(LoginContext);
   const history = useHistory();
@@ -15,7 +14,7 @@ function Login() {
     const name = res.profileObj.name;
     const email = res.profileObj.email;
     const headshot = res.profileObj.imageUrl;
-    setIsLoggedIn({ id: googleId, ...isLoggedIn});
+    setIsLoggedIn({ id: googleId, ...isLoggedIn });
     const google = await res;
     axios({
       method: "POST",
@@ -50,6 +49,7 @@ function Login() {
       history.push("/home");
     }
   }, [isLoggedIn.isSignedIn]);
+
   return (
     <section className="App container h-screen w-full flex justify-center items-center bg-green-500 shadow-2xl">
       <div className="w-full max-w-md bg-gray-800 shadow-2xl">

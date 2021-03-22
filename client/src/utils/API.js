@@ -37,9 +37,7 @@ export default {
   getWeather: function () {
     const city = "Minneapolis";
     const apiKey = process.env.REACT_APP_API_KEY;
-
     const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&appid=${apiKey}`;
-    // const currentWeatherUrl = "https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${API_KEY}"+";
     return axios.get(apiUrl);
   },
 };
