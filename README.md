@@ -79,6 +79,7 @@ This is the Dev Team:
 [Ben Flynn's Github.](https://github.com/flynn0087)
 [Nate Larson's Github.](https://github.com/ironicminer)
 [Esmond Kim's Github.](https://github.com/EsmondKim)
+[Here is a link to our presentation for the application.](https://docs.google.com/presentation/d/1YXYQoFGrvAmzrTpUZRMB4a-wWC1PYh3GrlZtd8_vr4c/edit#slide=id.gc949fb8e83_0_36)<br>
 
 ## Contact
 
