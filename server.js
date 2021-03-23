@@ -21,7 +21,7 @@ app.use(routes);
 
 // Serve up static assets (usually on heroku)
 app.use(express.static(path.join(__dirname, "./client/build")));
-app.get("*", (_req, res) => {
+app.get((_req, res) => {
   res.sendFile(path.join(__dirname, "./client/build"));
 });
 
@@ -38,9 +38,6 @@ mongoose
   )
   .then(() => console.log("\n\nMongoDB successfully connected\n\n"))
   .catch((err) => console.log(err));
-
-
-
 
 // Start the API server
 app.listen(PORT, () => {
