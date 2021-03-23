@@ -63,7 +63,7 @@ function Login() {
           ></img>
 
           <hr></hr>
-          <p className="m-10">It's Tee-Time</p>
+          <p className="m-10">It's ParTee-Time</p>
           <GoogleLogin
             clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
             buttonText="Login with Google"
