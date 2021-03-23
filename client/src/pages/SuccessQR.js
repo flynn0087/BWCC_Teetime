@@ -36,7 +36,7 @@ function SuccessQR() {
           </ul>
         </p>
         <br></br>
-        <p className="animate-bounce text-center font-bold  text-black my-6 mb-10 text-2xl">
+        <p className="animate-bounce text-center font-bold  text-yellow-400 my-6 mb-10 text-2xl">
           Refer your friends to the Bushwood CC & Tee Time App!
         </p>
       </div>
