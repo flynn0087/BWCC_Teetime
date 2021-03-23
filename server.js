@@ -14,6 +14,7 @@ app.use(logger("dev"));
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
+app.use("body-parser");
 app.use(express.json());
 
 // Add routes, both API and view
